@@ -12,7 +12,9 @@ class add
 {
 	public function __construct()
 	{
-		echo 'Add contact'; 
+		include "form.htm";
+		$fname=$_POST["fname"];
+		echo $fname;
 	}
 	
 }
