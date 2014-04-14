@@ -1,0 +1,136 @@
+CREATE TABLE title(
+titleid INT AUTO_INCREMENT NOT NULL,
+title CHAR( 30 ) NOT NULL ,
+PRIMARY KEY ( titleid )
+);
+
+
+CREATE TABLE Permission(
+permissionId     INT     AUTO_INCREMENT  NOT NULL,
+permissionName   CHAR( 30 )              NOT NULL,
+PRIMARY KEY ( permissionId )
+);
+
+
+CREATE TABLE User(
+userId      INT    AUTO_INCREMENT  NOT NULL,
+userName    CHAR( 30 )             NOT NULL,
+password    CHAR( 30 )             NOT NULL,
+FirstName   CHAR(30)               NOT NULL,
+LastName    CHAR(30)               NOT NULL,
+signature   CHAR(30)               NOT NULL,
+createDate  DATETIME ,
+meliCode    CHAR( 30 )             NOT NULL,
+cellPhone   CHAR( 30 )             NOT NULL,
+birthDate   CHAR( 30 )             NOT NULL,
+address     CHAR(100 )             NOT NULL,
+lastLogin   DATETIME ,
+successor   INT                    NOT NULL,
+PRIMARY KEY ( userId  )
+);
+
+
+CREATE TABLE contact(
+cotactId INT AUTO_INCREMENT NOT NULL,
+userId INT NOT NULL,
+FirstName CHAR(30) NOT NULL,
+LastName CHAR(30) NOT NULL,
+cellPhone CHAR(30) NOT NULL ,
+email CHAR(30) NOT NULL, 
+tel CHAR(30) NOT NULL,  
+address CHAR(100) NOT NULL,
+groups CHAR(30) NOT NULL,
+shared BINARY,         
+PRIMARY KEY ( cotactId ) ,
+FOREIGN KEY (userId) REFERENCES User(userId)
+);
+
+
+CREATE TABLE UserPermission(
+UserPermissionId   INT   AUTO_INCREMENT   NOT NULL,
+UserId             INT                    NOT NULL,
+PermissionId       INT                    NOT NULL,
+PRIMARY KEY ( UserPermissionId  ),
+FOREIGN KEY (userId) REFERENCES User(userId),
+FOREIGN KEY (PermissionId) REFERENCES Permission(permissionId)
+);
+
+
+CREATE TABLE groups(
+groupId      INT     AUTO_INCREMENT    NOT NULL,
+groupName    CHAR( 30 )                NOT NULL,
+PRIMARY KEY (groupId)
+);
+
+CREATE TABLE GroupPermission(
+groupPermissionId    INT   AUTO_INCREMENT   NOT NULL,
+groupId              INT                    NOT NULL, 
+permissionId         INT                    NOT NULL, 
+PRIMARY KEY ( groupPermissionId  ),
+FOREIGN KEY (permissionId) REFERENCES Permission(permissionId),
+FOREIGN KEY (groupId) REFERENCES Groups(groupId)
+);
+
+
+CREATE TABLE UserGroup(
+UserGroupId    INT     AUTO_INCREMENT    NOT NULL,
+groupId        INT                       NOT NULL,
+userId         INT                       NOT NULL, 
+PRIMARY KEY (UserGroupId),
+FOREIGN KEY (groupId ) REFERENCES Groups(groupId ),
+FOREIGN KEY (userId )  REFERENCES  User(userId )
+);
+
+
+CREATE TABLE UserTitle(
+TitleId      INT     AUTO_INCREMENT    NOT NULL,
+userId       INT                       NOT NULL, 
+userTitleId  INT                       NOT NULL,
+PRIMARY KEY (userTitleId),
+FOREIGN KEY (TitleId ) REFERENCES Title(titleId ),
+FOREIGN KEY (userId) REFERENCES User(userId )
+);
+
+
+CREATE TABLE Letter(
+letterId       INT     AUTO_INCREMENT    NOT NULL,
+userTitle      INT                       NOT NULL,
+userId         INT                       NOT NULL,
+parentLetterId INT                       NOT NULL,
+LetterNumber   CHAR( 30 )                NOT NULL,
+date           DATETIME ,
+fromUser           CHAR( 30 )                NOT NULL,
+toUser             CHAR( 30 )                NOT NULL,
+type           CHAR( 30 )                NOT NULL,
+subject        CHAR( 30 )                NOT NULL,
+mainText       CHAR( 30 )                NOT NULL,
+attachment     CHAR( 30 )                NOT NULL,
+status         CHAR( 30 )                NOT NULL,
+hasAttachment  BINARY 					NOT NULL,
+eghdam         CHAR( 30 )                NOT NULL,
+PRIMARY KEY ( letterId  ),
+FOREIGN KEY (userId) REFERENCES User(userId )
+);
+
+
+CREATE TABLE Receivers(
+receiverId      INT     AUTO_INCREMENT    NOT NULL,
+userId          INT                       NOT NULL,
+LetterId        INT                       NOT NULL, 
+receiverType    CHAR( 60 )                NOT NULL,
+viewed            BINARY	NOT NULL,
+PRIMARY KEY ( receiverId  ),
+FOREIGN KEY (userId) REFERENCES User(userId ),
+FOREIGN KEY (LetterId ) REFERENCES Letter(letterId )
+);
+
+
+CREATE TABLE Attachment(
+attachmentId     INT     AUTO_INCREMENT    NOT NULL,
+letterId         INT                       NOT NULL,
+fileName         CHAR( 30 )                NOT NULL,
+address          CHAR( 30 )                NOT NULL,
+fileSize         CHAR( 30 )                NOT NULL,
+PRIMARY KEY ( attachmentId  ),
+FOREIGN KEY (letterId ) REFERENCES Letter(letterId )
+);
