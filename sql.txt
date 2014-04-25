@@ -42,7 +42,7 @@ address VARCHAR(100),
 groups VARCHAR(30) NOT NULL,
 shared BINARY NOT NULL,         
 PRIMARY KEY ( contactId ) ,
-FOREIGN KEY (userId) REFERENCES User(userId)
+FOREIGN KEY (userId) REFERENCES User(userId)  ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -51,8 +51,8 @@ UserPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 UserId             MEDIUMINT  UNSIGNED          NOT NULL,
 PermissionId       MEDIUMINT   UNSIGNED         NOT NULL,
 PRIMARY KEY ( UserPermissionId  ),
-FOREIGN KEY (userId) REFERENCES User(userId),
-FOREIGN KEY (PermissionId) REFERENCES Permission(permissionId)
+FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (PermissionId) REFERENCES Permission(permissionId) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -67,8 +67,8 @@ groupPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 groupId              MEDIUMINT   UNSIGNED         NOT NULL, 
 permissionId         MEDIUMINT    UNSIGNED        NOT NULL, 
 PRIMARY KEY ( groupPermissionId  ),
-FOREIGN KEY (permissionId) REFERENCES Permission(permissionId),
-FOREIGN KEY (groupId) REFERENCES Groups(groupId)
+FOREIGN KEY (permissionId) REFERENCES Permission(permissionId) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (groupId) REFERENCES Groups(groupId) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -77,8 +77,8 @@ UserGroupId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 groupId      MEDIUMINT   UNSIGNED           NOT NULL,
 userId       MEDIUMINT    UNSIGNED          NOT NULL, 
 PRIMARY KEY (UserGroupId),
-FOREIGN KEY (groupId ) REFERENCES Groups(groupId ),
-FOREIGN KEY (userId )  REFERENCES  User(userId )
+FOREIGN KEY (groupId ) REFERENCES Groups(groupId ) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (userId )  REFERENCES  User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -87,8 +87,8 @@ TitleId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 userId       MEDIUMINT  UNSIGNED           NOT NULL, 
 userTitleId  MEDIUMINT   UNSIGNED            NOT NULL,
 PRIMARY KEY (userTitleId),
-FOREIGN KEY (TitleId ) REFERENCES Title(titleId ),
-FOREIGN KEY (userId) REFERENCES User(userId )
+FOREIGN KEY (TitleId ) REFERENCES Title(titleId ) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -109,7 +109,7 @@ status         VARCHAR( 30 )                NOT NULL,
 hasAttachment  BINARY 					NOT NULL,
 eghdam         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY ( letterId  ),
-FOREIGN KEY (userId) REFERENCES User(userId )
+FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -120,8 +120,8 @@ LetterId        MEDIUMINT    UNSIGNED          NOT NULL,
 receiverType    VARCHAR( 100 )                NOT NULL,
 viewed            BINARY	NOT NULL,
 PRIMARY KEY ( receiverId  ),
-FOREIGN KEY (userId) REFERENCES User(userId ),
-FOREIGN KEY (LetterId ) REFERENCES Letter(letterId )
+FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (LetterId ) REFERENCES Letter(letterId ) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
@@ -132,5 +132,5 @@ fileName         VARCHAR( 30 )                NOT NULL,
 address          VARCHAR( 30 )                NOT NULL,
 fileSize         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY ( attachmentId  ),
-FOREIGN KEY (letterId ) REFERENCES Letter(letterId )
+FOREIGN KEY (letterId ) REFERENCES Letter(letterId ) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
