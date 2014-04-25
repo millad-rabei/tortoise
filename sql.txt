@@ -1,136 +1,136 @@
 CREATE TABLE title(
-titleid INT AUTO_INCREMENT NOT NULL,
-title CHAR( 30 ) NOT NULL ,
+titleid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+title VARCHAR( 500 ) NOT NULL ,
 PRIMARY KEY ( titleid )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE Permission(
-permissionId     INT     AUTO_INCREMENT  NOT NULL,
-permissionName   CHAR( 30 )              NOT NULL,
+permissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+permissionName   VARCHAR( 50 ) NOT NULL,
 PRIMARY KEY ( permissionId )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE User(
-userId      INT    AUTO_INCREMENT  NOT NULL,
-userName    CHAR( 30 )             NOT NULL,
-password    CHAR( 30 )             NOT NULL,
-FirstName   CHAR(30)               NOT NULL,
-LastName    CHAR(30)               NOT NULL,
-signature   CHAR(30)               NOT NULL,
-createDate  DATETIME ,
-meliCode    CHAR( 30 )             NOT NULL,
-cellPhone   CHAR( 30 )             NOT NULL,
-birthDate   CHAR( 30 )             NOT NULL,
-address     CHAR(100 )             NOT NULL,
-lastLogin   DATETIME ,
-successor   INT                    NOT NULL,
+userId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userName    VARCHAR( 30 )             NOT NULL,
+password CHAR(40) NOT NULL,
+FirstName   VARCHAR(500)               NOT NULL,
+LastName    VARCHAR(500)               NOT NULL,
+signature   VARCHAR(500),
+createDate  DATETIME   NOT NULL,
+meliCode    VARCHAR( 10 )             NOT NULL,
+cellPhone   VARCHAR( 11 ),
+birthDate   VARCHAR( 30 )             NOT NULL,
+address     VARCHAR(1000 )             NOT NULL,
+lastLogin   DATETIME  ,
+successor   MEDIUMINT UNSIGNED ,
 PRIMARY KEY ( userId  )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE contact(
-cotactId INT AUTO_INCREMENT NOT NULL,
-userId INT NOT NULL,
-FirstName CHAR(30) NOT NULL,
-LastName CHAR(30) NOT NULL,
-cellPhone CHAR(30) NOT NULL ,
-email CHAR(30) NOT NULL, 
-tel CHAR(30) NOT NULL,  
-address CHAR(100) NOT NULL,
-groups CHAR(30) NOT NULL,
-shared BINARY,         
-PRIMARY KEY ( cotactId ) ,
+contactId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userId MEDIUMINT UNSIGNED NOT NULL,
+FirstName VARCHAR(500) NOT NULL,
+LastName VARCHAR(500) NOT NULL,
+cellPhone VARCHAR(30),
+email VARCHAR(30), 
+tel VARCHAR(30) ,  
+address VARCHAR(100),
+groups VARCHAR(30) NOT NULL,
+shared BINARY NOT NULL,         
+PRIMARY KEY ( contactId ) ,
 FOREIGN KEY (userId) REFERENCES User(userId)
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE UserPermission(
-UserPermissionId   INT   AUTO_INCREMENT   NOT NULL,
-UserId             INT                    NOT NULL,
-PermissionId       INT                    NOT NULL,
+UserPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+UserId             MEDIUMINT  UNSIGNED          NOT NULL,
+PermissionId       MEDIUMINT   UNSIGNED         NOT NULL,
 PRIMARY KEY ( UserPermissionId  ),
 FOREIGN KEY (userId) REFERENCES User(userId),
 FOREIGN KEY (PermissionId) REFERENCES Permission(permissionId)
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE groups(
-groupId      INT     AUTO_INCREMENT    NOT NULL,
-groupName    CHAR( 30 )                NOT NULL,
+groupId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupName    VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY (groupId)
-);
+)DEFAULT CHARSET=utf8;
 
 CREATE TABLE GroupPermission(
-groupPermissionId    INT   AUTO_INCREMENT   NOT NULL,
-groupId              INT                    NOT NULL, 
-permissionId         INT                    NOT NULL, 
+groupPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupId              MEDIUMINT   UNSIGNED         NOT NULL, 
+permissionId         MEDIUMINT    UNSIGNED        NOT NULL, 
 PRIMARY KEY ( groupPermissionId  ),
 FOREIGN KEY (permissionId) REFERENCES Permission(permissionId),
 FOREIGN KEY (groupId) REFERENCES Groups(groupId)
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE UserGroup(
-UserGroupId    INT     AUTO_INCREMENT    NOT NULL,
-groupId        INT                       NOT NULL,
-userId         INT                       NOT NULL, 
+UserGroupId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupId      MEDIUMINT   UNSIGNED           NOT NULL,
+userId       MEDIUMINT    UNSIGNED          NOT NULL, 
 PRIMARY KEY (UserGroupId),
 FOREIGN KEY (groupId ) REFERENCES Groups(groupId ),
 FOREIGN KEY (userId )  REFERENCES  User(userId )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE UserTitle(
-TitleId      INT     AUTO_INCREMENT    NOT NULL,
-userId       INT                       NOT NULL, 
-userTitleId  INT                       NOT NULL,
+TitleId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userId       MEDIUMINT  UNSIGNED           NOT NULL, 
+userTitleId  MEDIUMINT   UNSIGNED            NOT NULL,
 PRIMARY KEY (userTitleId),
 FOREIGN KEY (TitleId ) REFERENCES Title(titleId ),
 FOREIGN KEY (userId) REFERENCES User(userId )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE Letter(
-letterId       INT     AUTO_INCREMENT    NOT NULL,
-userTitle      INT                       NOT NULL,
-userId         INT                       NOT NULL,
-parentLetterId INT                       NOT NULL,
-LetterNumber   CHAR( 30 )                NOT NULL,
-date           DATETIME ,
-fromUser           CHAR( 30 )                NOT NULL,
-toUser             CHAR( 30 )                NOT NULL,
-type           CHAR( 30 )                NOT NULL,
-subject        CHAR( 30 )                NOT NULL,
-mainText       CHAR( 30 )                NOT NULL,
-attachment     CHAR( 30 )                NOT NULL,
-status         CHAR( 30 )                NOT NULL,
+letterId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userTitle      MEDIUMINT  UNSIGNED          NOT NULL,
+userId         MEDIUMINT   UNSIGNED           NOT NULL,
+parentLetterId MEDIUMINT  UNSIGNED,
+LetterNumber   VARCHAR( 50 )                NOT NULL,
+date           DATETIME  NOT NULL,
+fromUser           VARCHAR( 30 )                NOT NULL,
+toUser             VARCHAR( 30 )                NOT NULL,
+type           VARCHAR( 30 )                NOT NULL,
+subject        VARCHAR( 30 )                NOT NULL,
+mainText       VARCHAR( 30 )                NOT NULL,
+attachment     VARCHAR( 30 )               ,
+status         VARCHAR( 30 )                NOT NULL,
 hasAttachment  BINARY 					NOT NULL,
-eghdam         CHAR( 30 )                NOT NULL,
+eghdam         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY ( letterId  ),
 FOREIGN KEY (userId) REFERENCES User(userId )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE Receivers(
-receiverId      INT     AUTO_INCREMENT    NOT NULL,
-userId          INT                       NOT NULL,
-LetterId        INT                       NOT NULL, 
-receiverType    CHAR( 60 )                NOT NULL,
+receiverId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userId          MEDIUMINT   UNSIGNED        NOT NULL,
+LetterId        MEDIUMINT    UNSIGNED          NOT NULL, 
+receiverType    VARCHAR( 100 )                NOT NULL,
 viewed            BINARY	NOT NULL,
 PRIMARY KEY ( receiverId  ),
 FOREIGN KEY (userId) REFERENCES User(userId ),
 FOREIGN KEY (LetterId ) REFERENCES Letter(letterId )
-);
+)DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE Attachment(
-attachmentId     INT     AUTO_INCREMENT    NOT NULL,
-letterId         INT                       NOT NULL,
-fileName         CHAR( 30 )                NOT NULL,
-address          CHAR( 30 )                NOT NULL,
-fileSize         CHAR( 30 )                NOT NULL,
+attachmentId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+letterId         MEDIUMINT  UNSIGNED            NOT NULL,
+fileName         VARCHAR( 30 )                NOT NULL,
+address          VARCHAR( 30 )                NOT NULL,
+fileSize         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY ( attachmentId  ),
 FOREIGN KEY (letterId ) REFERENCES Letter(letterId )
-);
+)DEFAULT CHARSET=utf8;
