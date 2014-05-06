@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'titr';
+    src: url('fonts/BTitrBold.eot');
+    src: local('☺'), url('fonts/BTitrBold.woff') format('woff'), url('BTitrBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'zar';
+    src: url('fonts/BZar.eot');
+    src: local('☺'), url('fonts/BZar.woff') format('woff'), url('BZar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'titrtge';
+    src: url('fonts/BTitrTGEBold.eot');
+    src: local('☺'), url('fonts/BTitrTGEBold.woff') format('woff'), url('BTitrTGEBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'nazanin';
+    src: url('fonts/BNazanin.eot');
+    src: local('☺'), url('fonts/BNazanin.woff') format('woff'), url('BNazanin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'roya';
+    src: url('fonts/BRoya.eot');
+    src: local('☺'), url('fonts/BRoya.woff') format('woff'), url('BRoya.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'yekan';
+    src: url('fonts/BYekan.eot');
+    src: local('☺'), url('fonts/BYekan.woff') format('woff'), url('BYekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+	font-family: 'farsi';
+	src: url('fonts/DINNextLTArabic-Light.eot');
+	src: local('☺'), url('fonts/DINNextLTArabic-Light.woff') format('woff'), url('fonts/DINNextLTArabic-Light.ttf') format('truetype'), url('fonts/DINNextLTArabic-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} 
+@font-face {
+    font-family: 'bree';
+    src: url('fonts/BreeSerif-Regular-webfont.eot');
+    src: url('fonts/BreeSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BreeSerif-Regular-webfont.woff') format('woff'),
+         url('fonts/BreeSerif-Regular-webfont.ttf') format('truetype'),
+         url('fonts/BreeSerif-Regular-webfont.svg#BreeSerifRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face{font-family:'farsi2';
+src:url('fonts/light/latest.eot');src:local("Segoe UI Light"),local("Segoe WP Light"),
+url('fonts/light/latest.eot?#iefix') format('embedded-opentype'),
+url('fonts/light/latest.woff') format('woff'),
+url('fonts/light/latest.ttf') format('truetype'),
+url('fonts/light/latest.svg#web') format('svg');
+font-weight:normal;font-style:normal;
+line-height:150%;
+}
+@font-face{font-family:'farsi3';
+src:url('fonts/normal/latest.eot');src:local("Segoe UI"),local("Segoe"),local("Segoe WP"),
+url('fonts/normal/latest.eot?#iefix') format('embedded-opentype'),
+url('fonts/normal/latest.woff') format('woff'),
+url('fonts/normal/latest.ttf') format('truetype'),
+url('fonts/normal/latest.svg#web') format('svg');font-weight:normal;font-style:normal;
+line-height:150%;}
+@font-face {
+	font-family: 'english2';
+	src: url('fonts/223EE6_2_0.eot');
+	src: local('?'), url('fonts/223EE6_2_0.woff') format('woff'), url('fonts/223EE6_2_0.ttf') format('truetype'), url('fonts/223EE6_2_0.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,body{
+    direction:rtl;
+	width:100%;
+	height:100%;
+	margin:0 0 0 0 ;
+}
+.topheader,
+.header-wrap{
+    float:left;
+    width:100%;
+    clear:both;
+}
+.topheader{
+    height:5px;
+    background:#008fd7;
+}
+.header-wrap{
+    background:#96c7ff;
+    height:60px;
+}
+.header{
+    width:960px;
+    height:100%;
+    margin:0 auto;
+}
+.header-bg{
+    float:right;
+    margin-top:10px;
+    height:39px;
+    width:274px;
+    background:url(../images/title-bg.png) no-repeat;
+}
+.title{
+    padding:3px 30px 0 0;
+    font-family:yekan;
+    font-size:20px;
+    color:#0049a3;
+}
+.header-left{
+    position:fixed;
+    height:50px;
+    width:230px;
+    margin:5px 700px 0 0 ;
+    font-family:roya;
+    font-size:16px;
+}
+
+.login-wrap{
+    height:100%;
+    margin: 0 0 -32px 0;
+}
+
+.footer-wrap{
+    height:32px;
+    background:#005693;
+}
+.footer{
+    color:white;
+    font-family:yekan;
+    font-size:12px;
+    padding-top:6px;
+    direction:ltr;
+    padding-left:40px;
+}
