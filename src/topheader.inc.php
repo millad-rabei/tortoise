@@ -4,6 +4,16 @@
 	<div class="header-bg">
 	<div class="title">اتوماسیون اداری سنگ پشت</div>
 	</div>
-	<div class="header-left">آقای سید مجتبی میردهقان</div>
+	<div class="header-left">
+	<?php
+
+	if(isset($_SESSION['agent'])){
+	echo $_SESSION['first_name']; 	
+	}
+	else{
+		echo 'لطفا وارد شوید';
+	}
+	?>
+	</div>
 </div>
 </div>

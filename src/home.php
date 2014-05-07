@@ -6,9 +6,6 @@ class Home
 	public function __construct()
 	{
 		$pagetitle = "میز کار";
-		include 'header.inc.php';
-		include 'topheader.inc.php';
-		include 'footer.inc.php';
 
 
 		session_start(); // Start the session.
@@ -21,8 +18,11 @@ class Home
 	exit();	
 }
 else{
-	//show home
-	echo 'This is the home page'; 
+		//show home
+		include 'header.inc.php';
+		include 'topheader.inc.php';
+		include 'main.inc.php';
+		include 'footer.inc.php';
 }
 	}
 	
