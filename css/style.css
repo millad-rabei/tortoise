@@ -217,3 +217,20 @@ html,body{
     direction:ltr;
     padding-left:40px;
 }
+.lr{
+    width:351px;
+    position:absolute;
+    font-family:nazanin;
+    text-align:center;
+}
+.lr .error{
+    color:#B02814;
+    border-top:1px solid red;
+    background:pink;
+    
+}
+.lr .ok{
+    color:green;
+    border-top:1px solid green;
+    background:#B7F46E;
+}

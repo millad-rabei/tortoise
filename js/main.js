@@ -29,7 +29,13 @@ $(document).ready(function(){
 		else{
 			$( '.login-username , .login-password' ).css( {"border-color":"#999999" , "background" : "white"} );
 			$('.button').removeAttr('disabled');
-	
+			
+			$.post($("#login-form").attr("action"),
+					$("#login-form :input").serializeArray(),
+					function(data){
+						$('.lr').html(data);
+					}
+			 );
 
 			return false;
 		}
