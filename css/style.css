@@ -97,7 +97,7 @@ html,body{
     clear:both;
 }
 .topheader{
-    height:5px;
+    height:7px;
     background:#008fd7;
 }
 .header-wrap{
@@ -126,7 +126,7 @@ html,body{
     position:fixed;
     height:50px;
     width:230px;
-    margin:5px 700px 0 0 ;
+    margin:5px 730px 0 0 ;
     font-family:roya;
     font-size:16px;
 }
@@ -135,7 +135,76 @@ html,body{
     height:100%;
     margin: 0 0 -32px 0;
 }
+.login{
+    padding-top:10%;
+    margin:0 auto;
+    width:351px;
+    height:244px;
+}
+.top-login{
+    background:#CEEFFF;
+    height:68px;
+}
+.login-title{
+    position:absolute;
+    color:#004EAE;
+    font-family:yekan;
+    margin-top:-32px;
+    margin-right:240px;
+}
+.login-logo{
+    background:url(../images/logo-min.png) no-repeat;
+    height:52px;
+    width:73px;
+    margin-top:-62px;
+    margin-right:30px;
+}
+.logo-line{
+    margin-top:6px;
+    height:4px;
+    background:#3578CB;
+}
+.main-login{
+    background:#E7E7E7;
+    height:147px;
+    padding-top:25px;
+    padding-right:130px;
+}
 
+.label-login{
+    position:absolute;
+    float:right;
+    color:#383838;
+    font-family:yekan;
+    font-size:16px;
+    margin-right:-80px;
+    margin-top:5px;
+}
+.login-username,.login-password{
+    height:25px;
+    width:170px;
+    border: 1px solid #999999;
+    margin-top:7px;
+    direction:ltr;
+    padding-left:5px;
+    padding-right:5px;
+    font-size:20px;
+    color:#3578CB;
+}
+.main-login .button{
+    background:#868686;
+    height:30px;
+    width:80px;
+    color:white;
+    font-family:yekan;
+    font-size:16px;
+    margin-top:15px;
+    margin-right:102px;
+}
+.main-login .button:hover{
+    background:#3578CB;
+    color:white;
+}
 .footer-wrap{
     height:32px;
     background:#005693;

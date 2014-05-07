@@ -2,6 +2,7 @@
 
 class Home
 {
+	public $pagetitle = "میز کار";
 	public function __construct()
 	{
 		echo 'This is the home page'; 

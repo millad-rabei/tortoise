@@ -6,9 +6,9 @@
 	<div class="logo-line"></div>
 	<div class="main-login">
 		<form method="post" action="#">
-		<label>نام کاربری</label><input type="text" name="username" class="login-username"><br>
-		<label>رمز عبور</label><input	type="password" name="password" class="login-password"><br>
-		<label></label><input type="submit" name ="submit" value="ورود">
+		<label class="label-login">نام کاربری</label><input type="text" name="username" class="login-username"><br>
+		<label class="label-login">رمز عبور</label><input	type="password" name="password" class="login-password"><br>
+		<label class="label-login"></label><input type="submit" name ="submit" value="ورود" class="button">
 		</form>
 	</div>
 </div>
