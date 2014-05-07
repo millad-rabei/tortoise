@@ -4,15 +4,32 @@ include 'config.php';
 $username = $_POST['login-username'];
 $pass = md5($_POST['login-password']) ;
 
-$DB->query("SELECT count(*) FROM user WHERE(userName='$username' AND password='$pass') ");
+$DB->query("SELECT * FROM user WHERE(userName='$username' AND password='$pass') ");
 // Get an array of items:
-$result = $DB->get('count(*)');
+$result = $DB->get();
 
 //print_r($result) ;
 
-if ($result > 0)
+
+if (!empty($result)){
 	echo "<div class='ok'>ورود موفقیت آمیز</div>";
 
+	$user_id = $result[0]['userId'];
+	$first_name = $result[0]['FirstName'];
 
-else
+	// Set the session data:.
+		session_start();
+		$_SESSION['user_id'] = $user_id;
+		$_SESSION['first_name'] = $first_name;
+		
+		// Store the HTTP_USER_AGENT:
+		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
+		
+		//redirect to Home
+		echo '<script> window.location="home"; </script>';
+		exit();	
+}
+
+else {
 	echo "<div class='error'>نام کاربری یا رمز عبور اشتباه است</div>";
+}

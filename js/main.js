@@ -33,7 +33,9 @@ $(document).ready(function(){
 			$.post($("#login-form").attr("action"),
 					$("#login-form :input").serializeArray(),
 					function(data){
+						$('.lr').hide();
 						$('.lr').html(data);
+						$('.lr').fadeIn( "slow" );
 					}
 			 );
 

@@ -1,11 +1,16 @@
 <?php
 
+
 class Home
 {
-	public $pagetitle = "میز کار";
 	public function __construct()
 	{
-		
+		$pagetitle = "میز کار";
+		include 'header.inc.php';
+		include 'topheader.inc.php';
+		include 'footer.inc.php';
+
+
 		session_start(); // Start the session.
 
 		// If no session value is present, redirect the user:
@@ -14,7 +19,8 @@ class Home
 	//redirect to login page
 	echo '<script> window.location="login"; </script>';
 	exit();	
-
+}
+else{
 	//show home
 	echo 'This is the home page'; 
 }

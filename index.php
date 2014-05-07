@@ -14,8 +14,8 @@ include 'src/login.php';
 
 $route = new Route();
 
-
 $route->add('/', 'Home');
+$route->add('/home', 'Home');
 $route->add('/about', 'About');
 $route->add('/contact', 'Contact');
 $route->add('/contact/add', 'add');
