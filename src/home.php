@@ -5,10 +5,8 @@ class Home
 {
 	public function __construct()
 	{
-		$pagetitle = "میز کار";
-
-
 		session_start(); // Start the session.
+		$pagetitle = "میز کار";
 
 		// If no session value is present, redirect the user:
 		// Also validate the HTTP_USER_AGENT!

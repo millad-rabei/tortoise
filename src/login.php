@@ -5,6 +5,7 @@ class login
 {
 	public function __construct()
 	{
+		session_start(); // Start the session.
 		$pagetitle = "ورود کاربر";
 		include 'header.inc.php';
 		include 'topheader.inc.php';
@@ -12,7 +13,7 @@ class login
 		include 'footer.inc.php';
 
 	
-	session_start(); // Start the session.
+	
 
 		// If session value is present, redirect the home:
 		// Also validate the HTTP_USER_AGENT!
