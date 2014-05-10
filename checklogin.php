@@ -26,7 +26,7 @@ if (!empty($result)){
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
 		
 		//redirect to Home
-		echo '<script> window.location="home"; </script>';
+		echo '<script> window.location="dashboard"; </script>';
 		exit();	
 }
 

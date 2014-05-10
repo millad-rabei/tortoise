@@ -7,15 +7,15 @@
 
 include 'route.php';
 include 'src/about.php';
-include 'src/home.php';
+include 'src/dashboard.php';
 include 'src/contact.php';
 include 'src/login.php';
 
 
 $route = new Route();
 
-$route->add('/', 'Home');
-$route->add('/home', 'Home');
+$route->add('/', 'Dashboard');
+$route->add('/dashboard', 'Dashboard');
 $route->add('/about', 'About');
 $route->add('/contact', 'Contact');
 $route->add('/contact/add', 'add');

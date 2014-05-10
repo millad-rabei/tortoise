@@ -205,18 +205,7 @@ html,body{
     background:#3578CB;
     color:white;
 }
-.footer-wrap{
-    height:32px;
-    background:#005693;
-}
-.footer{
-    color:white;
-    font-family:yekan;
-    font-size:12px;
-    padding-top:6px;
-    direction:ltr;
-    padding-left:40px;
-}
+
 .lr{
     width:351px;
     position:absolute;
@@ -235,6 +224,111 @@ html,body{
     background:#B7F46E;
 }
 .main-wrap{
-    height:100%;
-    margin: 0 0 -32px 0;
+	width:960px;
+	padding-top:80px;
+	margin:0 auto;
+	
+}
+.menu-wrap{
+	margin-right:-38px;
+	padding-bottom:5px;
+}
+.menu{
+	height:26px;
+	width:100%;
+
+}
+.tab{
+	
+}
+.tab li{
+	font-family:koodak;
+	font-size:18px;
+	display:inline;
+	background:#008FD7;
+	padding:0 13px 0px 13px;
+	margin:-2px;
+	border-left:1px solid #005693;
+
+}
+.tab a , a:visited{
+	color:white;
+	text-decoration:none;
+}
+.tab a:hover li{
+	background:#96C7FF;
+	color:#005693;
+}
+.tab a:active li{
+	background:#E4E4E4;
+}
+
+.primary-tools{
+	background:#E4E4E4;
+}
+.prtools{
+	margin: 0 0 0 0;
+	padding-top:20px;
+	padding-bottom:10px;
+	border-bottom:1px dashed #9D9D9D;
+
+}
+.prtools li{
+	font-family:koodak;
+	font-size:16px;
+	display:inline;
+	padding:0 13px 0px 13px;
+	margin:10px;
+	background:#9D9D9D;
+	
+}
+.prtools a , a:visited{
+	text-decoration:none;
+	
+}
+.prtools a:hover li{
+	background:#555555;
+}
+.content{
+	background:#E4E4E4;
+	padding:10px;
+}
+.secondary-tools{
+	background:#E4E4E4;
+}
+.sectools{
+	margin: 0 0 0 0;
+	border-bottom:4px solid #96b8ce;
+}
+.sectools li{
+	font-family:koodak;
+	font-size:16px;
+	display:inline;
+	padding:0 20px 0px 20px;
+	margin:-2px;
+	color:#005693;
+
+}
+.sectools a , a:visited{
+	text-decoration:none;
+	
+}
+.sectools a:hover li{
+	border-bottom:4px solid #005693;
+	background: url(../images/secbg.png);
+	color:#009fe9;
+}
+.footer-wrap{
+	position:relative;
+    height:32px;
+    background:#005693;
+	margin-top:30px;
+}
+.footer{
+    color:white;
+    font-family:yekan;
+    font-size:12px;
+    padding-top:6px;
+    direction:ltr;
+    padding-left:40px;
 }
