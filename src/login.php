@@ -12,12 +12,9 @@ class login
 		include 'login-form.inc.php';
 		include 'footer.inc.php';
 
-	
-	
-
-		// If session value is present, redirect the home:
+			// If session value is present, redirect the home:
 		// Also validate the HTTP_USER_AGENT!
-	if (isset($_SESSION['agent']) OR ($_SESSION['agent'] == md5($_SERVER['HTTP_USER_AGENT']) ))
+	if (isset($_SESSION['agent']))
 	{
 	//redirect to home page
 	echo '<script> window.location="home"; </script>';

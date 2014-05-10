@@ -110,7 +110,7 @@ html,body{
     margin:0 auto;
 }
 .header-bg{
-    float:right;
+    float:left;
     margin-top:10px;
     height:39px;
     width:274px;
@@ -122,11 +122,11 @@ html,body{
     font-size:20px;
     color:#0049a3;
 }
-.header-left{
-    position:fixed;
+.header-right{
+    position:absolute;
     height:50px;
     width:230px;
-    margin:5px 730px 0 0 ;
+    margin:5px 0 0 0 ;
     font-family:roya;
     font-size:16px;
 }

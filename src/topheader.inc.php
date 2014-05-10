@@ -4,7 +4,7 @@
 	<div class="header-bg">
 	<div class="title">اتوماسیون اداری سنگ پشت</div>
 	</div>
-	<div class="header-left">
+	<div class="header-right">
 	<?php
 
 	if(isset($_SESSION['agent'])){
