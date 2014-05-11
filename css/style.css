@@ -98,181 +98,43 @@ html,body{
 	margin:0 0 0 0 ;
 }
 .topheader,
-.header-wrap{
-    float:left;
-    width:100%;
-    clear:both;
-}
-.topheader{
-    height:7px;
-    background:#008fd7;
-}
-.header-wrap{
-    background:#96c7ff;
-    height:60px;
-}
-.header{
-    width:960px;
-    height:100%;
-    margin:0 auto;
-}
-.header-bg{
-    float:left;
-    margin-top:10px;
-    height:39px;
-    width:274px;
-    background:url(../images/title-bg.png) no-repeat;
-}
-.title{
-    padding:3px 30px 0 0;
-    font-family:yekan;
-    font-size:20px;
-    color:#0049a3;
-}
-.header-right{
-    position:absolute;
-    height:50px;
-    width:230px;
-    margin:5px 0 0 0 ;
-    font-family:roya;
-    font-size:16px;
-}
+.header-wrap{float:left;width:100%;clear:both;}
+.topheader{height:7px;    background:#008fd7;}
+.header-wrap{    background:#96c7ff;    height:60px;}
+.header{    width:960px;    height:100%;    margin:0 auto;}
+.header-bg{    float:left;    margin-top:10px;    height:39px;    width:274px;    background:url(../images/title-bg.png) no-repeat;}
+.title{    padding:3px 30px 0 0;    font-family:yekan;    font-size:20px;    color:#0049a3;}
+.header-right{    position:absolute;    height:50px;    width:230px;    margin:5px 0 0 0 ;    font-family:roya;    font-size:16px;}
+.login-wrap{    height:100%;    margin: 0 0 -62px 0;}
+.login{    padding-top:150px;    margin:0 auto;    width:351px;    height:244px;}
+.top-login{    background:#CEEFFF;    height:68px;}
+.login-title{position:absolute;    color:#004EAE;    font-family:yekan;    margin-top:-32px;    margin-right:240px;}
+.login-logo{    background:url(../images/logo-min.png) no-repeat;    height:52px;    width:73px;    margin-top:-62px;    margin-right:30px;}
+.logo-line{    margin-top:6px;    height:4px;    background:#3578CB;}
 
-.login-wrap{
-    height:100%;
-    margin: 0 0 -62px 0;
-}
-.login{
-    padding-top:150px;
-    margin:0 auto;
-    width:351px;
-    height:244px;
-}
-.top-login{
-    background:#CEEFFF;
-    height:68px;
-}
-.login-title{
-    position:absolute;
-    color:#004EAE;
-    font-family:yekan;
-    margin-top:-32px;
-    margin-right:240px;
-}
-.login-logo{
-    background:url(../images/logo-min.png) no-repeat;
-    height:52px;
-    width:73px;
-    margin-top:-62px;
-    margin-right:30px;
-}
-.logo-line{
-    margin-top:6px;
-    height:4px;
-    background:#3578CB;
-}
-.main-login{
-    background:#E7E7E7;
-    height:147px;
-    padding-top:25px;
-    padding-right:130px;
-}
+.main-login{    background:#E7E7E7;    height:147px;    padding-top:25px;    padding-right:130px;}
+.label-login{    position:absolute;    float:right;    color:#383838;    font-family:yekan;    font-size:16px;    margin-right:-80px;    margin-top:5px;}
+.login-username,.login-password{height:25px;width:170px;border: 1px solid #999999;margin-top:7px;direction:ltr;padding-left:5px;padding-right:5px;    font-size:20px;    color:#3578CB;}
+.main-login .button{background:#868686;height:30px;width:80px;color:white;font-family:yekan;font-size:16px;margin-top:15px;margin-right:102px;}
+.main-login .button:hover{    background:#3578CB;    color:white;}
 
-.label-login{
-    position:absolute;
-    float:right;
-    color:#383838;
-    font-family:yekan;
-    font-size:16px;
-    margin-right:-80px;
-    margin-top:5px;
-}
-.login-username,.login-password{
-    height:25px;
-    width:170px;
-    border: 1px solid #999999;
-    margin-top:7px;
-    direction:ltr;
-    padding-left:5px;
-    padding-right:5px;
-    font-size:20px;
-    color:#3578CB;
-}
-.main-login .button{
-    background:#868686;
-    height:30px;
-    width:80px;
-    color:white;
-    font-family:yekan;
-    font-size:16px;
-    margin-top:15px;
-    margin-right:102px;
-}
-.main-login .button:hover{
-    background:#3578CB;
-    color:white;
-}
+.lr{    width:351px;    position:absolute;    font-family:nazanin;    text-align:center;}
+.lr .error{    color:#B02814;    border-top:1px solid red;    background:pink;    }
+.lr .ok{    color:green;    border-top:1px solid green;    background:#B7F46E;}
 
-.lr{
-    width:351px;
-    position:absolute;
-    font-family:nazanin;
-    text-align:center;
-}
-.lr .error{
-    color:#B02814;
-    border-top:1px solid red;
-    background:pink;
-    
-}
-.lr .ok{
-    color:green;
-    border-top:1px solid green;
-    background:#B7F46E;
-}
-.main-wrap{
-	width:960px;
-	margin:0 auto;
-    padding-top:80px;
-}
+.main-wrap{	width:960px;	margin:0 auto;    padding-top:80px;}
+.menu-wrap{	margin-right:-38px;	padding-bottom:5px;}
+.menu{	height:26px;	width:100%;}
 
-.menu-wrap{
-	margin-right:-38px;
-	padding-bottom:5px;
-}
-.menu{
-	height:26px;
-	width:100%;
+.tab{	}
+.tab li{font-family:koodak;font-size:18px;	display:inline;background:#008FD7;padding:0 13px 0px 13px;margin:-2px;border-left:1px solid #005693;}
+.tab a {color:white;text-decoration:none;}
+.tab a:visited li {}
+.tab a:hover li {background:#96C7FF;color:#005693;}
+.tab li.active {color:#434343;background:#E4E4E4 url(../images/tabactive.png) repeat-x;}
+.tab a:hover li.active{background:url(../images/tabah.png);}
 
-}
-.tab{
-	
-}
-.tab li{
-	font-family:koodak;
-	font-size:18px;
-	display:inline;
-	background:#008FD7;
-	padding:0 13px 0px 13px;
-	margin:-2px;
-	border-left:1px solid #005693;
-
-}
-.tab a , a:visited{
-	color:white;
-	text-decoration:none;
-}
-.tab a:hover li{
-	background:#96C7FF;
-	color:#005693;
-}
-.tab a:active li{
-	background:#E4E4E4;
-}
-
-.primary-tools{
-	background:#E4E4E4;
-}
+.primary-tools{	background:#E4E4E4;}
 .prtools{
 	margin: 0 0 0 0;
 	padding-top:20px;
@@ -289,25 +151,12 @@ html,body{
 	background:#9D9D9D;
 	
 }
-.prtools a , a:visited{
-	text-decoration:none;
-	
-}
-.prtools a:hover li{
-	background:#555555;
-}
-.content{
-	background:#E4E4E4;
-	padding:10px;
-
-}
-.secondary-tools{
-	background:#E4E4E4;
-}
-.sectools{
-	margin: 0 0 0 0;
-	border-bottom:4px solid #96b8ce;
-}
+.prtools a {text-decoration:none;}
+.prtools a:visited li{color:white;}
+.prtools a:hover li{background:#555555;}
+.content{	background:#E4E4E4;	padding:10px;}
+.secondary-tools{background:#E4E4E4;}
+.sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
 .sectools li{
 	font-family:koodak;
 	font-size:16px;
@@ -317,15 +166,9 @@ html,body{
 	color:#005693;
 
 }
-.sectools a , a:visited{
-	text-decoration:none;
-	
-}
-.sectools a:hover li{
-	border-bottom:4px solid #005693;
-	background: url(../images/secbg.png);
-	color:#009fe9;
-}
+.sectools a {text-decoration:none;}
+.sectools a:visited{}
+.sectools a:hover li{border-bottom:4px solid #005693;background: url(../images/secbg.png);	color:#009fe9;}
 
 .footer-wrap{
 	position:relative;
