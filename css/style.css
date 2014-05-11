@@ -1,6 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
 @font-face {
+    font-family: 'koodak';
+    src: url('fonts/BKoodakBold.eot');
+    src: local('☺'), url('fonts/BKoodakBold.woff') format('woff'), url('BKoodakBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
     font-family: 'titr';
     src: url('fonts/BTitrBold.eot');
     src: local('☺'), url('fonts/BTitrBold.woff') format('woff'), url('BTitrBold.ttf') format('truetype');
@@ -133,10 +140,10 @@ html,body{
 
 .login-wrap{
     height:100%;
-    margin: 0 0 -32px 0;
+    margin: 0 0 -62px 0;
 }
 .login{
-    padding-top:15%;
+    padding-top:150px;
     margin:0 auto;
     width:351px;
     height:244px;
@@ -225,10 +232,10 @@ html,body{
 }
 .main-wrap{
 	width:960px;
-	padding-top:80px;
 	margin:0 auto;
-	
+    padding-top:80px;
 }
+
 .menu-wrap{
 	margin-right:-38px;
 	padding-bottom:5px;
@@ -292,6 +299,7 @@ html,body{
 .content{
 	background:#E4E4E4;
 	padding:10px;
+
 }
 .secondary-tools{
 	background:#E4E4E4;
@@ -318,6 +326,7 @@ html,body{
 	background: url(../images/secbg.png);
 	color:#009fe9;
 }
+
 .footer-wrap{
 	position:relative;
     height:32px;

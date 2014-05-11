@@ -10,6 +10,7 @@ include 'src/about.php';
 include 'src/dashboard.php';
 include 'src/contact.php';
 include 'src/login.php';
+include 'src/logout.php';
 
 
 $route = new Route();
@@ -21,6 +22,7 @@ $route->add('/contact', 'Contact');
 $route->add('/contact/add', 'add');
 $route->add('/login', 'Login');
 $route->add('/login/user', 'add');
+$route->add('/logout', 'Logout');
 
 $route->submit();
 

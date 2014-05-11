@@ -1,7 +1,7 @@
 <?php
 
 
-class login
+class Login
 {
 	public function __construct()
 	{
@@ -17,19 +17,10 @@ class login
 	if (isset($_SESSION['agent']))
 	{
 	//redirect to home page
-	echo '<script> window.location="home"; </script>';
+	echo '<script> window.location="dashboard"; </script>';
 	exit();	
 	}
 
-	}
-	
-}
-
-class loginuser
-{
-	public function __construct()
-	{
-		echo 'This is the LOGIN !!!!'; 
 	}
 	
 }
