@@ -99,12 +99,12 @@ html,body{
 }
 .topheader,
 .header-wrap{float:left;width:100%;clear:both;}
-.topheader{height:7px;    background:#008fd7;}
-.header-wrap{    background:#96c7ff;    height:60px;}
-.header{    width:960px;    height:100%;    margin:0 auto;}
+.topheader{height:7px;background:#008fd7;}
+.header-wrap{background:#96c7ff;height:60px;}
+.header{width:960px;height:100%;margin:0 auto;}
 .header-bg{    float:left;    margin-top:10px;    height:39px;    width:274px;    background:url(../images/title-bg.png) no-repeat;}
 .title{    padding:3px 30px 0 0;    font-family:yekan;    font-size:20px;    color:#0049a3;}
-.header-right{    position:absolute;    height:50px;    width:230px;    margin:5px 0 0 0 ;    font-family:roya;    font-size:16px;}
+.header-right{position:absolute;height:50px;width:230px;margin:5px 0 0 0 ;font-family:farsi2;font-size:16px;}
 .login-wrap{    height:100%;    margin: 0 0 -62px 0;}
 .login{    padding-top:150px;    margin:0 auto;    width:351px;    height:244px;}
 .top-login{    background:#CEEFFF;    height:68px;}

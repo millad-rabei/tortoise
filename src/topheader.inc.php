@@ -6,12 +6,16 @@
 	</div>
 	<div class="header-right">
 	<?php
+	//add date 
+	require_once 'jdatetime.class.php';
+	$date = new jDateTime(true, true, 'Asia/Tehran');
 
 	if(isset($_SESSION['agent'])){
 	echo $_SESSION['first_name']; 	
 	}
 	else{
-		echo 'لطفا وارد شوید';
+		echo $date->date("l j F Y"); // Outputs: پنجشنبه ۱۵ اردیبهشت ۱۳۹۰ ۰۰:۰۰
+
 	}
 	?>
 	</div>
