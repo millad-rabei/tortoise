@@ -16,8 +16,8 @@ if (!empty($result)){
 		session_start();
 	echo "<div class='ok'>ورود موفقیت آمیز</div>";
 
-	$user_id = $result[0]['userId'];
-	$first_name = $result[0]['FirstName'];
+	$user_id = $result[0]['userid'];
+	$first_name = $result[0]['firstname'];
 		
 		
 		$_SESSION['user_id'] = $user_id;

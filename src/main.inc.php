@@ -17,7 +17,7 @@ $page =  "$_SERVER[REDIRECT_QUERY_STRING]";
 				<a href="<?php echo $url; ?>/contact">
 				<li <?php if ($page == "uri=contact") echo ' class="active"'; ?> >دفترچه تلفن</li></a>
 				<a href="<?php echo $url; ?>/profile">
-				<li <?php if ($page == "uri=profile") echo ' class="active"'; ?> >ویرایش مشخصلات</li></a>
+				<li <?php if ($page == "uri=profile") echo ' class="active"'; ?> >ویرایش مشخصات</li></a>
 				<a href="<?php echo $url; ?>/about">
 				<li <?php if ($page == "uri=about") echo ' class="active"'; ?> >درباره نرم افزار</li></a>
 				<a href="<?php echo $url; ?>/logout">
