@@ -5,132 +5,132 @@ PRIMARY KEY ( titleid )
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE Permission(
+CREATE TABLE permission(
 permissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
 permissionName   VARCHAR( 50 ) NOT NULL,
 PRIMARY KEY ( permissionId )
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE User(
-userId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userName    VARCHAR( 30 )             NOT NULL,
+CREATE TABLE user(
+userid MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+username    VARCHAR( 30 )             NOT NULL,
 password CHAR(40) NOT NULL,
-FirstName   VARCHAR(500)               NOT NULL,
-LastName    VARCHAR(500)               NOT NULL,
+firstname   VARCHAR(500)               NOT NULL,
+lastname    VARCHAR(500)               NOT NULL,
 signature   VARCHAR(500),
-createDate  DATETIME   NOT NULL,
-meliCode    VARCHAR( 10 )             NOT NULL,
-cellPhone   VARCHAR( 11 ),
-birthDate   VARCHAR( 30 )             NOT NULL,
+createdate  DATETIME   NOT NULL,
+melicode    VARCHAR( 10 )             NOT NULL,
+cellphone   VARCHAR( 11 ),
+birthdate   VARCHAR( 30 )             NOT NULL,
 address     VARCHAR(1000 )             NOT NULL,
-lastLogin   DATETIME  ,
+lastlogin   DATETIME  ,
 successor   MEDIUMINT UNSIGNED ,
-PRIMARY KEY ( userId  )
+PRIMARY KEY ( userid  )
 )DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE contact(
-contactId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userId MEDIUMINT UNSIGNED NOT NULL,
-FirstName VARCHAR(500) NOT NULL,
-LastName VARCHAR(500) NOT NULL,
-cellPhone VARCHAR(30),
+contactid MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userid MEDIUMINT UNSIGNED NOT NULL,
+firstname VARCHAR(500) NOT NULL,
+lastname VARCHAR(500) NOT NULL,
+cellphone VARCHAR(30),
 email VARCHAR(30), 
 tel VARCHAR(30) ,  
 address VARCHAR(100),
 groups VARCHAR(30) NOT NULL,
 shared BINARY NOT NULL,         
-PRIMARY KEY ( contactId ) ,
-FOREIGN KEY (userId) REFERENCES User(userId)  ON DELETE CASCADE ON UPDATE CASCADE
+PRIMARY KEY (contactid) ,
+FOREIGN KEY (userid) REFERENCES user(userid)  ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE UserPermission(
-UserPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-UserId             MEDIUMINT  UNSIGNED          NOT NULL,
-PermissionId       MEDIUMINT   UNSIGNED         NOT NULL,
-PRIMARY KEY ( UserPermissionId  ),
-FOREIGN KEY (userId) REFERENCES User(userId) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (PermissionId) REFERENCES Permission(permissionId) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE userpermission(
+userpermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userid             MEDIUMINT  UNSIGNED          NOT NULL,
+permissionid       MEDIUMINT   UNSIGNED         NOT NULL,
+PRIMARY KEY ( userpermissionid  ),
+FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (permissionid) REFERENCES permission(permissionid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE groups(
-groupId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-groupName    VARCHAR( 30 )                NOT NULL,
-PRIMARY KEY (groupId)
+groupid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupname    VARCHAR( 30 )                NOT NULL,
+PRIMARY KEY (groupid)
 )DEFAULT CHARSET=utf8;
 
-CREATE TABLE GroupPermission(
-groupPermissionId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-groupId              MEDIUMINT   UNSIGNED         NOT NULL, 
-permissionId         MEDIUMINT    UNSIGNED        NOT NULL, 
-PRIMARY KEY ( groupPermissionId  ),
-FOREIGN KEY (permissionId) REFERENCES Permission(permissionId) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (groupId) REFERENCES Groups(groupId) ON DELETE CASCADE ON UPDATE CASCADE
-)DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE UserGroup(
-UserGroupId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-groupId      MEDIUMINT   UNSIGNED           NOT NULL,
-userId       MEDIUMINT    UNSIGNED          NOT NULL, 
-PRIMARY KEY (UserGroupId),
-FOREIGN KEY (groupId ) REFERENCES Groups(groupId ) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (userId )  REFERENCES  User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE grouppermission(
+grouppermissionid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupid              MEDIUMINT   UNSIGNED         NOT NULL, 
+permissionid         MEDIUMINT    UNSIGNED        NOT NULL, 
+PRIMARY KEY (grouppermissionid),
+FOREIGN KEY (permissionid) REFERENCES permission(permissionid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (groupid) REFERENCES groups(groupid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE UserTitle(
-TitleId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userId       MEDIUMINT  UNSIGNED           NOT NULL, 
-userTitleId  MEDIUMINT   UNSIGNED            NOT NULL,
-PRIMARY KEY (userTitleId),
-FOREIGN KEY (TitleId ) REFERENCES Title(titleId ) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE usergroup(
+usergroupid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+groupid      MEDIUMINT   UNSIGNED           NOT NULL,
+userid       MEDIUMINT    UNSIGNED          NOT NULL, 
+PRIMARY KEY (usergroupid),
+FOREIGN KEY (groupid) REFERENCES groups(groupid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (userid)  REFERENCES  user(userid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE Letter(
-letterId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userTitle      MEDIUMINT  UNSIGNED          NOT NULL,
-userId         MEDIUMINT   UNSIGNED           NOT NULL,
-parentLetterId MEDIUMINT  UNSIGNED,
-LetterNumber   VARCHAR( 50 )                NOT NULL,
+CREATE TABLE usertitle(
+titleid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userid       MEDIUMINT  UNSIGNED           NOT NULL, 
+usertitleid  MEDIUMINT   UNSIGNED            NOT NULL,
+PRIMARY KEY (usertitleid),
+FOREIGN KEY (titleid) REFERENCES title(titleid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE
+)DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE letter(
+letterid MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+usertitle      MEDIUMINT  UNSIGNED          NOT NULL,
+userid         MEDIUMINT   UNSIGNED           NOT NULL,
+parentletterid MEDIUMINT  UNSIGNED,
+letternumber   VARCHAR( 50 )                NOT NULL,
 date           DATETIME  NOT NULL,
-fromUser           VARCHAR( 30 )                NOT NULL,
-toUser             VARCHAR( 30 )                NOT NULL,
+fromuser           VARCHAR( 30 )                NOT NULL,
+touser             VARCHAR( 30 )                NOT NULL,
 type           VARCHAR( 30 )                NOT NULL,
 subject        VARCHAR( 30 )                NOT NULL,
 mainText       VARCHAR( 30 )                NOT NULL,
 attachment     VARCHAR( 30 )               ,
 status         VARCHAR( 30 )                NOT NULL,
-hasAttachment  BINARY 					NOT NULL,
+hasattachment  BINARY 					NOT NULL,
 eghdam         VARCHAR( 30 )                NOT NULL,
-PRIMARY KEY ( letterId  ),
-FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE
+PRIMARY KEY (letterid),
+FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE Receivers(
-receiverId  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userId          MEDIUMINT   UNSIGNED        NOT NULL,
-LetterId        MEDIUMINT    UNSIGNED          NOT NULL, 
-receiverType    VARCHAR( 100 )                NOT NULL,
+CREATE TABLE receivers(
+receiverid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+userid          MEDIUMINT   UNSIGNED        NOT NULL,
+letterid        MEDIUMINT    UNSIGNED          NOT NULL, 
+receivertype    VARCHAR( 100 )                NOT NULL,
 viewed            BINARY	NOT NULL,
-PRIMARY KEY ( receiverId  ),
-FOREIGN KEY (userId) REFERENCES User(userId ) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN KEY (LetterId ) REFERENCES Letter(letterId ) ON DELETE CASCADE ON UPDATE CASCADE
+PRIMARY KEY (receiverid),
+FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (letterid) REFERENCES letter(letterid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE Attachment(
-attachmentId MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-letterId         MEDIUMINT  UNSIGNED            NOT NULL,
-fileName         VARCHAR( 30 )                NOT NULL,
+CREATE TABLE attachment(
+attachmentid MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+letterid         MEDIUMINT  UNSIGNED            NOT NULL,
+filename         VARCHAR( 30 )                NOT NULL,
 address          VARCHAR( 30 )                NOT NULL,
-fileSize         VARCHAR( 30 )                NOT NULL,
-PRIMARY KEY ( attachmentId  ),
-FOREIGN KEY (letterId ) REFERENCES Letter(letterId ) ON DELETE CASCADE ON UPDATE CASCADE
+filesize         VARCHAR( 30 )                NOT NULL,
+PRIMARY KEY (attachmentid),
+FOREIGN KEY (letterid) REFERENCES letter(letterid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;

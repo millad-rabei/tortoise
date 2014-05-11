@@ -8,7 +8,7 @@ class Logout
 		session_start(); // Start the session.
 		$pagetitle = "خروج کاربر";
 
-	if (!isset($_SESSION['user_id'])) {
+	if (!isset($_SESSION['agent'])) {
 
 	//redirect to login page
 	echo '<script> window.location="login"; </script>';

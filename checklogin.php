@@ -12,19 +12,20 @@ $result = $DB->get();
 
 
 if (!empty($result)){
+		// Set the session data:.
+		session_start();
 	echo "<div class='ok'>ورود موفقیت آمیز</div>";
 
 	$user_id = $result[0]['userId'];
 	$first_name = $result[0]['FirstName'];
-
-	// Set the session data:.
-		session_start();
+		
+		
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['first_name'] = $first_name;
 		
 		// Store the HTTP_USER_AGENT:
 		$_SESSION['agent'] = md5($_SERVER['HTTP_USER_AGENT']);
-		
+
 		//redirect to Home
 		echo '<script> window.location="dashboard"; </script>';
 		exit();	
