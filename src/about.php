@@ -20,9 +20,8 @@ else{
 		include 'header.inc.php';
 		include 'topheader.inc.php';
 		include 'main.inc.php';
-		include 'dashboard-primary-tools.php';
-		include 'dashboard-content.php';
-		include 'dashboard-secondary-tools.php';
+		include 'about-content.php';
+		include 'about-secondary-tools.php';
 		include 'footer.inc.php';
 }
 	}
