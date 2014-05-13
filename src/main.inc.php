@@ -2,7 +2,10 @@
 
 $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']); 
 
-$page =  "$_SERVER[REDIRECT_QUERY_STRING]";
+if (!is_null($_SERVER['QUERY_STRING'])) {
+$page= ($_SERVER['QUERY_STRING']); }
+
+//$page = "$_SERVER[REDIRECT_QUERY_STRING]";
 //print_r($_SERVER);
 
 ?>
