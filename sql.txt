@@ -24,7 +24,7 @@ melicode    VARCHAR( 10 )             NOT NULL,
 cellphone   VARCHAR( 11 ),
 birthdate   VARCHAR( 30 )             NOT NULL,
 address     VARCHAR(1000 )             NOT NULL,
-lastlogin   DATETIME  ,
+lastlogin   VARCHAR(100)  ,
 successor   MEDIUMINT UNSIGNED ,
 PRIMARY KEY ( userid  )
 )DEFAULT CHARSET=utf8;
