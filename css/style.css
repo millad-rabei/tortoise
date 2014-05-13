@@ -96,6 +96,7 @@ html,body{
 	width:100%;
 	height:100%;
 	margin:0 0 0 0 ;
+    background:url(../images/body.jpg);
 }
 .topheader,
 .header-wrap{float:left;width:100%;clear:both;}
@@ -161,7 +162,7 @@ a:hover{color:red;}
 a:visited{}
 hr{color:#D6D6D6;}
 .sangposht-logo{position:absolute;margin-top:-240px;margin-right:690px;}
-.content{font-family:nazanin,bree;	background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
+.content{font-family:nazanin,bree;font-size:18px;background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
 .about-content{width:660px;}
 .secondary-tools{background:#E4E4E4;}
 .sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
