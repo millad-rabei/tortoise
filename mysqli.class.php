@@ -61,6 +61,7 @@ private $fetchMode = MYSQLI_BOTH;
 */
 public function __construct($db) {
 $this->mysqli = new mysqli($db['host'], $db['user'], $db['pass'], $db['table']);
+mysqli_set_charset($this->mysqli, "utf8");
 
 if (mysqli_connect_errno())
 {

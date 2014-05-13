@@ -12,7 +12,7 @@
 	$date = new jDateTime(true, true, 'Asia/Tehran');
 
 	if(isset($_SESSION['agent'])){
-	echo $_SESSION['first_name']."<br>"; 	
+	echo $_SESSION['first_name']." ".$_SESSION['last_name']."<br>"; 	
 
 	}
 	else{

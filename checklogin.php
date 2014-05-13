@@ -22,9 +22,11 @@ if (!empty($result)){
 
 	$user_id = $result[0]['userid'];
 	$first_name = $result[0]['firstname'];
+	$last_name = $result[0]['lastname'];
 
 		$_SESSION['user_id'] = $user_id;
 		$_SESSION['first_name'] = $first_name;
+		$_SESSION['last_name'] = $last_name;
 		//$_SESSION['now'] = $date->date("l j F Y H:i");
 		
 		// Store the HTTP_USER_AGENT:
