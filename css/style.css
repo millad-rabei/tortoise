@@ -154,7 +154,15 @@ html,body{
 .prtools a {text-decoration:none;}
 .prtools a:visited li{color:white;}
 .prtools a:hover li{background:#555555;}
-.content{	background:#E4E4E4;	padding:10px;}
+h2{font-family:farsi;color:#BC0000;}
+h3{font-family:yagut;color:#005491;}
+a{color:black;text-decoration:none;}
+a:hover{color:red;}
+a:visited{}
+hr{color:#D6D6D6;}
+.sangposht-logo{position:absolute;margin-top:-240px;margin-right:690px;}
+.content{font-family:nazanin,bree;	background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
+.about-content{width:660px;}
 .secondary-tools{background:#E4E4E4;}
 .sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
 .sectools li{
@@ -184,3 +192,5 @@ html,body{
     direction:ltr;
     padding-left:40px;
 }
+.opensource , .github{margin-top:-50px;width:7%;height: auto;}
+.opensource{margin-right:730px;}
