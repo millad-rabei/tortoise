@@ -28,3 +28,12 @@ else{
 	}
 
 }
+
+class add
+{
+	public function __construct()
+	{
+		echo 'Add contact'; 
+	}
+	
+}

@@ -20,11 +20,20 @@ else{
 		include 'header.inc.php';
 		include 'topheader.inc.php';
 		include 'main.inc.php';
-		include 'dashboard-primary-tools.php';
-		include 'dashboard-content.php';
-		include 'dashboard-secondary-tools.php';
+		include 'user-primary-tools.php';
+		include 'user-content.php';
+		include 'user-secondary-tools.php';
 		include 'footer.inc.php';
 }
 	}
 
+}
+
+class Users
+{
+	public function __construct()
+	{
+		echo 'Add contact'; 
+	}
+	
 }

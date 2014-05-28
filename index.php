@@ -23,10 +23,10 @@ $route->add('/dashboard', 'Dashboard');
 $route->add('/about', 'About');
 $route->add('/contact', 'Contact');
 $route->add('/user', 'User');
+$route->add('/user/users', 'Users');
 $route->add('/profile', 'Profile');
 $route->add('/contact/add', 'add');
 $route->add('/login', 'Login');
-$route->add('/login/user', 'add');
 $route->add('/logout', 'Logout');
 
 $route->submit();
