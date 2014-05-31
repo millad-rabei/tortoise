@@ -155,6 +155,8 @@ html,body{
 .prtools a {text-decoration:none;}
 .prtools a:visited li{color:white;}
 .prtools a:hover li{background: url(../images/bgarron.png),url(../images/bgarrow.png) no-repeat;background-position:center;}
+.prtools li.active {color:#434343;background:#E4E4E4 url(../images/tabactive.png) repeat-x;}
+.prtools a:hover li.active{background:url(../images/tabah.png);}
 h2{font-family:farsi;color:#BC0000;}
 h3{font-family:yagut;color:#005491;}
 a{color:black;text-decoration:none;}
