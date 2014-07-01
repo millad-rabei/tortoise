@@ -163,7 +163,15 @@ a:hover{color:red;}
 a:visited{}
 hr{color:#D6D6D6;}
 .sangposht-logo{position:absolute;margin-top:-240px;margin-right:690px;}
-.content{font-family:nazanin,bree;font-size:18px;background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
+.content{font-family:nazanin,tahoma;font-size:18px;background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
+.contact-content{font-family:nazanin,bree;font-size:18px;background:#E4E4e4;	padding:10px;text-align:justify;text-justify:inter-word;height:400px}
+.contact-left{margin-left:120px;float:left}
+.contact-left-r{margin-left:120px;float:left}
+.contact-seprate{background-color:blue;width:4px;height:100%;float:left;margin-left:25px}
+.contact-right{
+    margin-right:20px;
+    width:200px;  
+}
 .about-content{width:660px;}
 .secondary-tools{background:#E4E4E4;}
 .sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
@@ -185,6 +193,11 @@ hr{color:#D6D6D6;}
     height:32px;
     background:#005693;
 	margin-top:30px;
+    
+}
+.search{
+    float:left;
+    margin-left:20px;
 }
 .footer{
     color:white;
@@ -196,3 +209,17 @@ hr{color:#D6D6D6;}
 }
 .opensource , .github{margin-top:-50px;width:7%;height: auto;}
 .opensource{margin-right:730px;}
+ul li a
+{
+    padding:5px;
+}
+ul li a:hover
+{
+    background-color:#96C7FF;
+    border-radius:5px;
+}
+.popup{
+    background: gray;
+    height:200px;
+    width:160px;
+}

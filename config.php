@@ -7,6 +7,6 @@ $config['pass'] = '';
 $config['table'] = 'tortoise';
 
 // connect to DB :
-include 'mysqli.class.php';
-$DB = new DB($config);
+include_once 'mysqli.class.php';
+$db = new DB($config);
 

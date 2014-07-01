@@ -4,9 +4,9 @@ include 'config.php';
 $username = $_POST['login-username'];
 $pass = md5($_POST['login-password']) ;
 
-$DB->query("SELECT * FROM user WHERE(username='$username' AND password='$pass') ");
+$db->query("SELECT * FROM user WHERE(username='$username' AND password='$pass') ");
 // Get an array of items:
-$result = $DB->get();
+$result = $db->get();
 
 //print_r($result) ;
 
