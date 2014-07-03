@@ -1,6 +1,10 @@
 $(document).ready(function(){
-//fetch 	
-$('.pgt-content').load('../getpgt.php');
+//show pgt info
+$.post("../getpgt.php",
+	$("#secform :input").serializeArray(),
+	function(data){
+	$('.pgt-content').html(data);
+});
 //hide loading first
 $('#loading').hide();
 //hide all popup div
@@ -48,49 +52,6 @@ $('.popup').hide();
 			return false;
 		}
 	});
-
-
-
-	//Save New PGT 
-	$("#pgt-form").submit(function(){
-		
-		var value1 = $('.pgt').val();
-		var length1 = value1.length;
-		if (length1 == 0 ){
-			 $( '.pgt' ).css( {"border-color":"red" , "background" : "#FEE0CC"} );
-			 //$('.btn').attr('disabled','disabled');
-
-
-			 return false;
-		}
-		else{
-			$('#error,#ok').hide();
-			//show loading ...
-			$('#loading').show();
-			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
-			//$('.button').removeAttr('disabled');
-			
-			$.post($("#pgt-form").attr("action"),
-					$("#pgt-form :input").serializeArray(),
-					function(data){
-						$('.pgt-msg').html(data);
-						$('#error,#ok').hide();
-						$('#loading').hide();
-						$('#error,#ok').fadeIn( "slow" );
-						//update info
-						$.post("../getpgt.php",
-							$("#pgt-form :input").serializeArray(),
-							function(data){
-								$('.pgt-content').html(data);
-						});
-
-					}
-			 );
-
-			return false;
-		}
-	});
-
 
 	
 });

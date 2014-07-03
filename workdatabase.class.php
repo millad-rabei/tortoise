@@ -13,12 +13,13 @@ Class workdatabase
 		// Get an array of items:
 		$result = $db->get();
    		 	
-   		 echo "<input class='add' type='image' src='../images/logo-min.png'><br>";
+   		 echo "
+   		 <input rel='".$this->table."' class='add' type='image' src='../images/logo-min.png' value='' id=''><br>";
    		 foreach ($result as $v) {
    		 	//print result
      		  echo "<span value='".$v[0]."'>".$v[1]."</span>
-     		  		<input class='edit' type='image' src='../images/edit.png' alt='".$v[0]."'>
-     		  		<input class='delete' type='image' src='../images/delete.png' alt='".$v[0]."'>
+     		  		<input rel='".$this->table."' class='edit' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'>
+     		  		<input rel='".$this->table."' class='delete' type='image' src='../images/delete.png' id='".$v[0]."' value='".$v[1]."'>
      		  <br>";
    		}
 	}

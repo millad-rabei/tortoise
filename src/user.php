@@ -77,8 +77,8 @@ else{
 		include 'topheader.inc.php';
 		include 'main.inc.php';
 		include 'user-primary-tools.php';
-
-		include 'user-managetitle-content.php';
+		$sec="title";
+		include 'user-manage-content.php';
 		include 'user-secondary-tools.php';
 
 		include 'footer.inc.php';
@@ -106,8 +106,8 @@ else{
 		include 'topheader.inc.php';
 		include 'main.inc.php';
 		include 'user-primary-tools.php';
-
-		include 'user-managegroups-content.php';
+		$sec="groups";
+		include 'user-manage-content.php';
 		include 'user-secondary-tools.php';
 
 		include 'footer.inc.php';
@@ -135,8 +135,8 @@ else{
 		include 'topheader.inc.php';
 		include 'main.inc.php';
 		include 'user-primary-tools.php';
-
-		include 'user-managepermission-content.php';
+		$sec="permission";
+		include 'user-manage-content.php';
 		include 'user-secondary-tools.php';
 
 		include 'footer.inc.php';

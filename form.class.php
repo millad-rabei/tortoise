@@ -4,6 +4,8 @@ class form{
 		public $section;
 		public $title;
 		public $type;
+		public $id;
+		public $value;
 		function __construct($type,$title){
 				$this->type = (string) $type;
 				$this->title = (string) $title;
@@ -14,10 +16,11 @@ class form{
 		}
 		public function add($section){
 		$this->section = (string) $section;
-		echo $this->section;
 		echo '
-			<form id="pgt-form" method="post" action="../pgt.php">
+			<form id="pgt-form-add" method="post" action="../run-query-pgt.php">
 			<label>جدید : </label><input name="pgt" type="text" class="pgt">
+			<input name="whatwork" type="hidden" value="add">
+			<input type="hidden" name="id" value="">
 			<input id="section" name="section" type="hidden" value="'.$this->section.'">
 			<input name="submit" class="button" type="submit" value="ثبت">
 			</form>
@@ -26,21 +29,35 @@ class form{
 		echo '</div></div>';
 		}
 
-		public function edit($section){
+		public function edit($section,$id,$value){
 		$this->section = (string) $section;
-		echo $this->section;
+		$this->id = (int) $id;
+		$this->value = (string) $value;
 		echo '
-
+			<form id="pgt-form-edit" method="post" action="../run-query-pgt.php">
+			<label>محتوی : </label><input name="pgt" type="text" class="pgt" value="'.$this->value.'">
+			<input name="whatwork" type="hidden" value="edit">
+			<input type="hidden" name="id" value="'.$this->id.'">
+			<input id="section" name="section" type="hidden" value="'.$this->section.'">
+			<input name="submit" class="button" type="submit" value="ویرایش">
+			</form>
 		';
 		//close the pop up
 		echo '</div></div>';
 		}
 
-		public function delete($section){
+		public function delete($section,$id,$value){
 		$this->section = (string) $section;
-		echo $this->section;
+		$this->id = (int) $id;
+		$this->value = (string) $value;
 		echo '
-
+			<form id="pgt-form-delete" method="post" action="../run-query-pgt.php">
+			<label>محتوی : </label><input name="pgt" type="text" class="pgt" value="'.$this->value.'">
+			<input name="whatwork" type="hidden" value="delete">
+			<input type="hidden" name="id" value="'.$this->id.'">
+			<input id="section" name="section" type="hidden" value="'.$this->section.'">
+			<input name="submit" class="button" type="submit" value="حذف">
+			</form>
 		';
 		//close the pop up
 		echo '</div></div>';
