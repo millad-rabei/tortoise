@@ -13,11 +13,11 @@
 		</div>
 		<hr>
 		<span>وبلاگ پروژه : </span><a href="http://sangposht.blogfa.com" target="_blank">sangposht.blogfa.com</a><br>
-		<span>سورس پروژه  در گیت هاب : </span><a href="https://github.com/tortoisePL/tortoise" target="_blank">Github</a><br>
+		<span>سورس پروژه  در گیت هاب : </span><a href="https://github.com/nakhlesefid/sangposht" target="_blank">Github</a><br>
 		<div class="sangposht-logo"><img src="images/logo.png"></div>
 
 		<div class="logos">
 			<a target="_blank" href="http://opensource.org/"><img class="opensource" src="images/opensource.png"></a>
-			<a target="_blank" href="http://github.com/tortoisePL/tortoise"><img class="github" src="images/github.png"></a>
+			<a target="_blank" href="http://github.com/nakhlesefid/sangposht"><img class="github" src="images/github.png"></a>
 		</div>
 	</div>
