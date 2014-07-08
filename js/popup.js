@@ -11,9 +11,11 @@ $(document).ready(function(){
 			$.post("../createpopup.php",
 					{'id': id , 'type': type ,'table': table , 'value' : value},
 					function(data){
-						if (type=="adduser") {
+						if (type=="adduser" ) {
+							$('#popup-wrap').removeClass('small');
 							$('#popup-wrap').addClass('large');
 						}else{
+							$('#popup-wrap').removeClass('large');
 							$('#popup-wrap').addClass('small');
 						};
 						$('div#popup-wrap').html(data);
