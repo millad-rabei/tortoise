@@ -222,12 +222,14 @@ ul li a:hover
     background: white;
     border:3px #96C7FF solid;
     position:absolute;
-
+    box-shadow: 10px 10px 5px #888888;
 }
 .titlewrap{
     background:#D7F1FF;
     padding-right:10px;
     cursor: move;
+    color:#005693;
+
 }
 
 .btnclose{
@@ -242,7 +244,6 @@ ul li a:hover
     width:280px;
 }
 #popup-wrap.large{
-    height:300px;
     width:700px;
 }
 #imgclose{

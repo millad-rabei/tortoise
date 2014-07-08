@@ -68,8 +68,17 @@ class form{
 		public function adduser(){
 		echo '
 			<form id="pgt-form-adduser" method="post" action="../run-query-pgt.php">
-			<label>نام : </label><input name="firstname" type="text" class="pgt">
-			<label>نام خانوادگی : </label><input name="lastname" type="text" class="pgt">
+			<label>نام کاربری : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>رمز عبور : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>تکرار رمز عبور : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>نام : </label><input name="firstname" type="text" class="pgt"></br>
+			<label>نام خانوادگی : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>فایل امضاء : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>کدملی : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>تلفن همراه : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>تاریخ تولد : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>آدرس : </label><input name="lastname" type="text" class="pgt"></br>
+			<label>جانشنین : </label><input name="lastname" type="text" class="pgt"></br>
 			<input name="whatwork" type="hidden" value="adduser">
 			<input type="hidden" name="id" value="">
 			<input id="section" name="section" type="hidden" value="'.$this->section.'">
