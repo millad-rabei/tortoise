@@ -1,0 +1,270 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family: 'koodak';
+    src: url('fonts/BKoodakBold.eot');
+    src: local('☺'), url('fonts/BKoodakBold.woff') format('woff'), url('BKoodakBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'titr';
+    src: url('fonts/BTitrBold.eot');
+    src: local('☺'), url('fonts/BTitrBold.woff') format('woff'), url('BTitrBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'zar';
+    src: url('fonts/BZar.eot');
+    src: local('☺'), url('fonts/BZar.woff') format('woff'), url('BZar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'titrtge';
+    src: url('fonts/BTitrTGEBold.eot');
+    src: local('☺'), url('fonts/BTitrTGEBold.woff') format('woff'), url('BTitrTGEBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'nazanin';
+    src: url('fonts/BNazanin.eot');
+    src: local('☺'), url('fonts/BNazanin.woff') format('woff'), url('BNazanin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'roya';
+    src: url('fonts/BRoya.eot');
+    src: local('☺'), url('fonts/BRoya.woff') format('woff'), url('BRoya.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+    font-family: 'yekan';
+    src: url('fonts/BYekan.eot');
+    src: local('☺'), url('fonts/BYekan.woff') format('woff'), url('BYekan.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} 
+@font-face {
+	font-family: 'farsi';
+	src: url('fonts/DINNextLTArabic-Light.eot');
+	src: local('☺'), url('fonts/DINNextLTArabic-Light.woff') format('woff'), url('fonts/DINNextLTArabic-Light.ttf') format('truetype'), url('fonts/DINNextLTArabic-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} 
+@font-face {
+    font-family: 'bree';
+    src: url('fonts/BreeSerif-Regular-webfont.eot');
+    src: url('fonts/BreeSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/BreeSerif-Regular-webfont.woff') format('woff'),
+         url('fonts/BreeSerif-Regular-webfont.ttf') format('truetype'),
+         url('fonts/BreeSerif-Regular-webfont.svg#BreeSerifRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face{font-family:'farsi2';
+src:url('fonts/light/latest.eot');src:local("Segoe UI Light"),local("Segoe WP Light"),
+url('fonts/light/latest.eot?#iefix') format('embedded-opentype'),
+url('fonts/light/latest.woff') format('woff'),
+url('fonts/light/latest.ttf') format('truetype'),
+url('fonts/light/latest.svg#web') format('svg');
+font-weight:normal;font-style:normal;
+line-height:150%;
+}
+@font-face{font-family:'farsi3';
+src:url('fonts/normal/latest.eot');src:local("Segoe UI"),local("Segoe"),local("Segoe WP"),
+url('fonts/normal/latest.eot?#iefix') format('embedded-opentype'),
+url('fonts/normal/latest.woff') format('woff'),
+url('fonts/normal/latest.ttf') format('truetype'),
+url('fonts/normal/latest.svg#web') format('svg');font-weight:normal;font-style:normal;
+line-height:150%;}
+@font-face {
+	font-family: 'english2';
+	src: url('fonts/223EE6_2_0.eot');
+	src: local('?'), url('fonts/223EE6_2_0.woff') format('woff'), url('fonts/223EE6_2_0.ttf') format('truetype'), url('fonts/223EE6_2_0.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,body{
+    direction:rtl;
+	width:100%;
+	height:100%;
+	margin:0 0 0 0 ;
+    background:url(../images/body.jpg);
+}
+.topheader,
+.header-wrap{float:left;width:100%;clear:both;}
+.topheader{height:7px;background:#008fd7;}
+.header-wrap{background:#96c7ff;height:60px;}
+.header{width:960px;height:100%;margin:0 auto;}
+.header-bg{    float:left;    margin-top:10px;    height:39px;    width:274px;    background:url(../images/title-bg.png) no-repeat;}
+.title{    padding:3px 30px 0 0;    font-family:yekan;    font-size:20px;    color:#0049a3;}
+.header-right{position:absolute;height:50px;width:230px;margin:5px 0 0 0 ;font-family:nazanin;font-size:18px;color:#005177;}
+.login-wrap{    height:100%;    margin: 0 0 -62px 0;}
+.login{    padding-top:150px;    margin:0 auto;    width:351px;    height:244px;}
+.top-login{    background:#CEEFFF;    height:68px;}
+.login-title{position:absolute;    color:#004EAE;    font-family:yekan;    margin-top:-32px;    margin-right:240px;}
+.login-logo{    background:url(../images/logo-min.png) no-repeat;    height:52px;    width:73px;    margin-top:-62px;    margin-right:30px;}
+.logo-line{    margin-top:6px;    height:4px;    background:#3578CB;}
+
+.main-login{    background:#E7E7E7;    height:147px;    padding-top:25px;    padding-right:130px;}
+.label-login{    position:absolute;    float:right;    color:#383838;    font-family:yekan;    font-size:16px;    margin-right:-80px;    margin-top:5px;}
+.login-username,.login-password{height:25px;width:170px;border: 1px solid #999999;margin-top:7px;direction:ltr;padding-left:5px;padding-right:5px;    font-size:20px;    color:#3578CB;}
+.main-login .button{background:#868686;height:30px;width:80px;color:white;font-family:yekan;font-size:16px;margin-top:15px;margin-right:102px;}
+.main-login .button:hover{    background:#3578CB;    color:white;}
+
+.lr{    width:351px;    position:absolute;    font-family:nazanin;    text-align:center;}
+.lr .error{    color:#B02814;    border-top:1px solid red;    background:pink;    }
+.lr .ok{    color:green;    border-top:1px solid green;    background:#B7F46E;}
+
+.main-wrap{	width:960px;	margin:0 auto;    padding-top:80px;}
+.menu-wrap{	margin-right:-38px;	padding-bottom:5px;}
+.menu{	height:26px;	width:100%;}
+
+.tab{	}
+.tab li{font-family:koodak;font-size:18px;	display:inline;background:#008FD7;padding:0 13px 0px 13px;margin:-2px;border-left:1px solid #005693;}
+.tab a {color:white;text-decoration:none;}
+.tab a:visited li {}
+.tab a:hover li {background:#96C7FF;color:#005693;}
+.tab li.active {color:#434343;background:#E4E4E4 url(../images/tabactive.png) repeat-x;}
+.tab a:hover li.active{background:url(../images/tabah.png);}
+
+.primary-tools{	background:#E4E4E4;}
+.prtools{
+	margin: 0 0 0 0;
+	padding-top:20px;
+	padding-bottom:10px;
+	border-bottom:1px dashed #9D9D9D;
+
+}
+.prtools li{
+	font-family:koodak;
+	font-size:16px;
+	display:inline;
+	padding:0 13px 10px 13px;
+	margin:10px;
+	background: url(../images/bgarroff.png);
+}
+.prtools a {text-decoration:none;color:white;}
+.prtools a:visited li{color:white;}
+.prtools a:hover li{background: url(../images/bgarron.png),url(../images/bgarrow.png) no-repeat;background-position:center;}
+.prtools li.active {background: url(../images/bgarron.png),url(../images/bgarrow.png) no-repeat;background-position:center;}
+.prtools a:hover li.active{cursor:auto}
+h2{font-family:farsi;color:#BC0000;}
+h3{font-family:yagut;color:#005491;}
+a{color:black;text-decoration:none;}
+a:hover{color:red;}
+a:visited{}
+hr{color:#D6D6D6;}
+.sangposht-logo{position:absolute;margin-top:-240px;margin-right:690px;}
+.content{font-family:nazanin,tahoma;font-size:18px;background:#E4E4E4;	padding:10px;text-align:justify;text-justify:inter-word;}
+.contact-content{font-family:nazanin,bree;font-size:18px;background:#E4E4e4;	padding:10px;text-align:justify;text-justify:inter-word;height:400px}
+.contact-left{margin-left:120px;float:left}
+.contact-left-r{margin-left:120px;float:left}
+.contact-seprate{background-color:blue;width:4px;height:100%;float:left;margin-left:25px}
+.contact-right{
+    margin-right:20px;
+    width:200px;  
+}
+.about-content{width:660px;}
+.secondary-tools{background:#E4E4E4;}
+.sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
+.sectools li{
+	font-family:koodak;
+	font-size:16px;
+	display:inline;
+	padding:0 20px 0px 20px;
+	margin:-2px;
+	color:#005693;
+
+}
+.sectools a {text-decoration:none;}
+.sectools a:visited{}
+.sectools a:hover li{border-bottom:4px solid #005693;background: url(../images/secbg.png);	color:#009fe9;}
+
+.footer-wrap{
+	position:relative;
+    height:32px;
+    background:#005693;
+	margin-top:30px;
+    
+}
+.search{
+    float:left;
+    margin-left:20px;
+}
+.footer{
+    color:white;
+    font-family:yekan;
+    font-size:12px;
+    padding-top:6px;
+    direction:ltr;
+    padding-left:40px;
+}
+.opensource , .github{margin-top:-50px;width:7%;height: auto;}
+.opensource{margin-right:730px;}
+ul li a
+{
+    padding:5px;
+}
+ul li a:hover
+{
+    background-color:#96C7FF;
+    border-radius:5px;
+}
+#popup-wrap{
+    background: white;
+    border:3px #96C7FF solid;
+    position:absolute;
+
+}
+.titlewrap{
+    background:#D7F1FF;
+    padding-right:10px;
+    cursor: move;
+}
+
+.btnclose{
+    float:left;
+    margin-left:10px;
+    margin-top:-24px;
+}
+.popcontent{
+    padding:30px 15px 30px 15px;
+}
+#popup-wrap.small{
+    width:280px;
+}
+#popup-wrap.large{
+    height:300px;
+    width:700px;
+}
+#imgclose{
+    cursor:pointer;
+}
+
+.tblresult{
+    border-collapse:collapse;
+    margin: 0 auto;
+}
+.tblresult td{
+    padding:0px 12px 0px 12px;
+    text-align:center;
+}
+.trtop{
+    background:#B2C0CE!important;
+    color:#2F4D6B;
+    border-bottom:1px #7E94AA solid;
+}
+.tblresult tr:nth-child(even){
+    background:#D1FFD4;
+}
+.tblresult tr:nth-child(odd){
+    background:#FFDFD8;
+}
