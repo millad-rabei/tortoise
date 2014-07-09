@@ -221,7 +221,11 @@ ul li a:hover
 #popup-wrap{
     background: white;
     /* border:4px #96C7FF solid; */
+<<<<<<< HEAD
     border:4px #FFE572 solid;
+=======
+    border:5px #FFE572 solid;
+>>>>>>> af239c0abe02865f29ba6badf9413459f527707c
     position:absolute;
     box-shadow: 10px 10px 5px #888888;
 }
@@ -240,13 +244,15 @@ ul li a:hover
     margin-top:-24px;
 }
 .popcontent{
-    padding:30px 15px 30px 15px;
+    padding:20px 15px 30px 15px;
 }
 #popup-wrap.small{
     width:280px;
+    padding-bottom:15px;
 }
 #popup-wrap.large{
     width:700px;
+    padding-bottom:15px;
 }
 #imgclose{
     cursor:pointer;
@@ -270,4 +276,28 @@ ul li a:hover
 }
 .tblresult tr:nth-child(odd){
     background:#FFDFD8;
+}
+label{
+    font-family:yekan;
+    color:#005693;
+}
+input.pgt{
+    float:left;
+    font-size:18px;
+    font-family:roya;
+    padding:0px 10px 0px 10px;
+    width:200px;
+    height:40px;
+}
+.containli{
+    width:360px;
+    padding-right:10px;
+    height:25px;
+}
+.button{
+    height:40px;
+    font-family:yekan;
+    font-size:16px;
+    padding:0px 10px 0px 10px;
+    float:left;
 }
