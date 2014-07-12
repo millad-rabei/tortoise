@@ -14,14 +14,28 @@ Class workdatabase
 		$result = $db->get();
    		 	
    		 echo "
-   		 <input rel='".$this->table."' class='add' type='image' src='../images/logo-min.png' value='' id=''><br>";
+   		 <input rel='".$this->table."' class='add' type='image' src='../images/add.png' value='' id=''>
+   		 <table class='tblresult' >
+   		 <tr class='trtop'>
+   		 <td></td>
+   		 <td></td>
+   		 <td></td>
+   		 <td></td>
+   		 </tr>
+   		 ";
+   		 
    		 foreach ($result as $v) {
    		 	//print result
-     		  echo "<span value='".$v[0]."'>".$v[1]."</span>
-     		  		<input rel='".$this->table."' class='edit' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'>
-     		  		<input rel='".$this->table."' class='delete' type='image' src='../images/delete.png' id='".$v[0]."' value='".$v[1]."'>
+     		  echo "
+   		 <tr class=''>
+   		 <td><input rel='".$this->table."' class='edit' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'></td>
+   		 <td><input rel='".$this->table."' class='delete' type='image' src='../images/delete.png' id='".$v[0]."' value='".$v[1]."'></td>
+   		 <td></td>
+   		 <td><span value='".$v[0]."'>".$v[1]."</span></td>
+   		 </tr>
      		  <br>";
    		}
+   		echo "</table>";
 	}
 	//show user information
 	public function fetchuser($tablename){
@@ -32,7 +46,7 @@ Class workdatabase
 		$result = $db->get();
 
    		 echo "
-   		 <input popsize='large' rel='".$this->table."' class='adduser' type='image' src='../images/logo-min.png' value='' id=''><br>
+   		 <input popsize='large' rel='".$this->table."' class='adduser' type='image' src='../images/add.png' value='' id=''><br>
    		 <table class='tblresult' >
    		 <tr class='trtop'>
    		 <td></td>

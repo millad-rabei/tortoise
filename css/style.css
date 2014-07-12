@@ -257,11 +257,12 @@ ul li a:hover
 
 .tblresult{
     border-collapse:collapse;
-    margin: 0 auto;
+   margin: 0px 17px 10px 0px;
 }
 .tblresult td{
     padding:0px 12px 0px 12px;
     text-align:center;
+    
 }
 .trtop{
     background:#B2C0CE!important;
@@ -298,6 +299,6 @@ input.pgt{
 .button{
     height:35px;
     font-family:yekan;
-    font-size:14px;
+    font-size:16px;
     padding:0px 10px 0px 10px;
 }
