@@ -221,11 +221,7 @@ ul li a:hover
 #popup-wrap{
     background: white;
     /* border:4px #96C7FF solid; */
-<<<<<<< HEAD
-    border:4px #FFE572 solid;
-=======
     border:5px #FFE572 solid;
->>>>>>> af239c0abe02865f29ba6badf9413459f527707c
     position:absolute;
     box-shadow: 10px 10px 5px #888888;
 }
