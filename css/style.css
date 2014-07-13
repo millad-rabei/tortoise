@@ -280,7 +280,7 @@ label{
     font-size: 13px;
     color:#005693;
 }
-input.pgt{
+input.pgt , select.pgt{
     height:25px;
     width:170px;
     border: 1px solid #999999;
@@ -291,11 +291,17 @@ input.pgt{
     font-family:koodak;
     padding: 1px 10px 1px 10px;
 }
+select.pgt{
+    width: 192px;
+    height: 30px;
+}
 .containli{
     width:310px;
     padding-right:10px;
-    height:20px;
+    height:10px;
+    
 }
+
 .button{
     height:35px;
     font-family:yekan;
