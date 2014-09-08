@@ -8,5 +8,7 @@
 				<li <?php if ($page == "uri=user/managegroup") echo ' class="active"'; ?> >گروه ها</li></a>
 		<a href="<?php echo $url; ?>/user/managepermission">
 				<li <?php if ($page == "uri=user/managepermission") echo ' class="active"'; ?> >حق دسترسی ها</li></a>
+		<a href="<?php echo $url; ?>/user/applypermissions">
+				<li <?php if ($page == "uri=user/applypermissions") echo ' class="active"'; ?> >مجوزها</li></a>
 	</ul>
 	</div>

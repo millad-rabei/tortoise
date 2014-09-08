@@ -9,6 +9,6 @@
 	<input type="hidden" value="<?php echo $sec; ?>" name="firstsection">
 </form>
 
-<div class="pgt-msg"></div>
+
 <div class="pgt-content"></div>
 </div>

@@ -21,7 +21,7 @@ else{
 		include 'topheader.inc.php';
 		include 'main.inc.php';
 		include 'about-content.php';
-		include 'about-secondary-tools.php';
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}

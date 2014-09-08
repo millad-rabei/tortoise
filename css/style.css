@@ -1,98 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
-@font-face {
-    font-family: 'koodak';
-    src: url('fonts/BKoodakBold.eot');
-    src: local('☺'), url('fonts/BKoodakBold.woff') format('woff'), url('BKoodakBold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'titr';
-    src: url('fonts/BTitrBold.eot');
-    src: local('☺'), url('fonts/BTitrBold.woff') format('woff'), url('BTitrBold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'zar';
-    src: url('fonts/BZar.eot');
-    src: local('☺'), url('fonts/BZar.woff') format('woff'), url('BZar.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'titrtge';
-    src: url('fonts/BTitrTGEBold.eot');
-    src: local('☺'), url('fonts/BTitrTGEBold.woff') format('woff'), url('BTitrTGEBold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'nazanin';
-    src: url('fonts/BNazanin.eot');
-    src: local('☺'), url('fonts/BNazanin.woff') format('woff'), url('BNazanin.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'roya';
-    src: url('fonts/BRoya.eot');
-    src: local('☺'), url('fonts/BRoya.woff') format('woff'), url('BRoya.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-    font-family: 'yekan';
-    src: url('fonts/BYekan.eot');
-    src: local('☺'), url('fonts/BYekan.woff') format('woff'), url('BYekan.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-} 
-@font-face {
-	font-family: 'farsi';
-	src: url('fonts/DINNextLTArabic-Light.eot');
-	src: local('☺'), url('fonts/DINNextLTArabic-Light.woff') format('woff'), url('fonts/DINNextLTArabic-Light.ttf') format('truetype'), url('fonts/DINNextLTArabic-Light.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-} 
-@font-face {
-    font-family: 'bree';
-    src: url('fonts/BreeSerif-Regular-webfont.eot');
-    src: url('fonts/BreeSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/BreeSerif-Regular-webfont.woff') format('woff'),
-         url('fonts/BreeSerif-Regular-webfont.ttf') format('truetype'),
-         url('fonts/BreeSerif-Regular-webfont.svg#BreeSerifRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-@font-face{font-family:'farsi2';
-src:url('fonts/light/latest.eot');src:local("Segoe UI Light"),local("Segoe WP Light"),
-url('fonts/light/latest.eot?#iefix') format('embedded-opentype'),
-url('fonts/light/latest.woff') format('woff'),
-url('fonts/light/latest.ttf') format('truetype'),
-url('fonts/light/latest.svg#web') format('svg');
-font-weight:normal;font-style:normal;
-line-height:150%;
-}
-@font-face{font-family:'farsi3';
-src:url('fonts/normal/latest.eot');src:local("Segoe UI"),local("Segoe"),local("Segoe WP"),
-url('fonts/normal/latest.eot?#iefix') format('embedded-opentype'),
-url('fonts/normal/latest.woff') format('woff'),
-url('fonts/normal/latest.ttf') format('truetype'),
-url('fonts/normal/latest.svg#web') format('svg');font-weight:normal;font-style:normal;
-line-height:150%;}
-@font-face {
-	font-family: 'english2';
-	src: url('fonts/223EE6_2_0.eot');
-	src: local('?'), url('fonts/223EE6_2_0.woff') format('woff'), url('fonts/223EE6_2_0.ttf') format('truetype'), url('fonts/223EE6_2_0.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
+@import url("fonts.css");
 
 html,body{
-    direction:rtl;
+  direction:rtl;
 	width:100%;
 	height:100%;
 	margin:0 0 0 0 ;
@@ -103,9 +14,13 @@ html,body{
 .topheader{height:7px;background:#008fd7;}
 .header-wrap{background:#96c7ff;height:60px;}
 .header{width:960px;height:100%;margin:0 auto;}
-.header-bg{    float:left;    margin-top:10px;    height:39px;    width:274px;    background:url(../images/title-bg.png) no-repeat;}
-.title{    padding:3px 30px 0 0;    font-family:yekan;    font-size:20px;    color:#0049a3;}
-.header-right{position:absolute;height:50px;width:230px;margin:5px 0 0 0 ;font-family:nazanin;font-size:18px;color:#005177;}
+.header-bg{float:left;margin-top:10px;height:39px;}
+table.orgname{border-collapse:collapse;}
+table.orgname td:first-child{width: 16px;height: 39px;background:url(../images/title-bg-right.png) no-repeat;}
+table.orgname td:nth-child(2){ vertical-align: top;padding:3px 10px 0px 10px;height: 39px;background: url(../images/title-bg-middle.png);}
+table.orgname td:last-child{width: 14px;height: 16px;background:url(../images/title-bg-left.png) no-repeat;}
+.title{padding:3px 30px 0 0;font-family:yekan;font-size:20px;color:#0049a3;}
+.header-right{position:absolute;height:50px;width:400px;margin:2px 0 0 0 ;font-family:nazanin;font-size:18px;color:#005177;}
 .login-wrap{    height:100%;    margin: 0 0 -62px 0;}
 .login{    padding-top:150px;    margin:0 auto;    width:351px;    height:244px;}
 .top-login{    background:#CEEFFF;    height:68px;}
@@ -113,16 +28,22 @@ html,body{
 .login-logo{    background:url(../images/logo-min.png) no-repeat;    height:52px;    width:73px;    margin-top:-62px;    margin-right:30px;}
 .logo-line{    margin-top:6px;    height:4px;    background:#3578CB;}
 
-.main-login{    background:#E7E7E7;    height:147px;    padding-top:25px;    padding-right:130px;}
-.label-login{    position:absolute;    float:right;    color:#383838;    font-family:yekan;    font-size:16px;    margin-right:-80px;    margin-top:5px;}
+.main-login{background:#E7E7E7;height:147px;padding-top:25px;padding-right:130px;}
+.label-login{position:absolute;float:right;color:#383838;font-family:yekan;font-size:16px;    margin-right:-80px;    margin-top:5px;}
 .login-username,.login-password{height:25px;width:170px;border: 1px solid #999999;margin-top:7px;direction:ltr;padding-left:5px;padding-right:5px;    font-size:20px;    color:#3578CB;}
-.button{background:#868686;height:30px;width:80px;color:white;font-family:yekan;font-size:16px;margin-top:15px;float: left;}
-.button:hover{    background:#3578CB;    color:white;}
-.main-login .button{margin-left:37px;}
+input[type="submit"],input[type="reset"]{padding: 0px 20px 0px 20px;background:#868686;color:white;font-family:yekan;font-size:16px;margin-top:15px;margin-bottom: 10px;}
+input[type="submit"]:hover,input[type="reset"]:hover{background:#3578CB;color:white;}
+.main-login input[type="submit"]{float: left;margin-left:37px;}
+#applyperm input[type="submit"]{margin-right: 85%;}
 
-.lr{    width:351px;    position:absolute;    font-family:nazanin;    text-align:center;}
-.lr .error{    color:#B02814;    border-top:1px solid red;    background:pink;    }
-.lr .ok{    color:green;    border-top:1px solid green;    background:#B7F46E;}
+
+div.lr{width: 100%;font-family:nazanin;text-align:center;}
+div.lr .error{    color:#B02814;    border-top:1px solid red;    background:pink;    }
+div.lr .ok{    color:green;    border-top:1px solid green;    background:#B7F46E;}
+
+.login div.lr{width:351px;position:absolute;font-family:nazanin;text-align:center;}
+.login div.lr .error{    color:#B02814;    border-top:1px solid red;    background:pink;    }
+.login div.lr .ok{    color:green;    border-top:1px solid green;    background:#B7F46E;}
 
 .main-wrap{	width:960px;	margin:0 auto;    padding-top:80px;}
 .menu-wrap{	margin-right:-38px;	padding-bottom:5px;}
@@ -169,10 +90,7 @@ hr{color:#D6D6D6;}
 .contact-left{margin-left:120px;float:left}
 .contact-left-r{margin-left:120px;float:left}
 .contact-seprate{background-color:blue;width:4px;height:100%;float:left;margin-left:25px}
-.contact-right{
-    margin-right:20px;
-    width:200px;  
-}
+.contact-right{margin-right:20px; width:200px;}
 .about-content{width:660px;}
 .secondary-tools{background:#E4E4E4;}
 .sectools{	margin: 0 0 0 0;	border-bottom:4px solid #96b8ce;}
@@ -219,12 +137,18 @@ ul li a:hover
     background-color:#96C7FF;
     border-radius:5px;
 }
+
 #popup-wrap{
     background: white;
     /* border:4px #96C7FF solid; */
     border:5px #FFE572 solid;
-    position:absolute;
     box-shadow: 10px 10px 5px #888888;
+    position: absolute;
+top: 25%;
+left: 40%;
+margin-top: -100px;
+margin-left: -250px;
+  
 }
 .titlewrap{
    /* background:#96C7FF; */
@@ -251,6 +175,10 @@ ul li a:hover
     width:700px;
     padding-bottom:15px;
 }
+#popup-wrap.big{
+    width:800px;
+    padding-bottom:15px;
+}
 #imgclose{
     cursor:pointer;
 }
@@ -269,12 +197,19 @@ ul li a:hover
     color:#2F4D6B;
     border-bottom:1px #7E94AA solid;
 }
-.tblresult tr:nth-child(even){
+.tblresult tr:nth-child(even) {
     background:#D1FFD4;
 }
 .tblresult tr:nth-child(odd){
     background:#FFDFD8;
 }
+.permissionstbl{ border-collapse:collapse;   margin: 10px 10px 10px 10px;}
+.permissionstbl tr:first-child{border-bottom:1px solid #7E94AA;background: #B2C0CE!important;}
+.permissionstbl td{padding:0px 20px 0px 20px;text-align:center;}
+.permissionstbl td:first-child{width: 100%;text-align: right;}
+.permissionstbl tr:nth-child(even) { background:#D1FFD4;}
+.permissionstbl tr:nth-child(odd){ background:#FFDFD8;}
+
 label{
     font-family:yekan;
     font-size: 13px;
@@ -284,7 +219,7 @@ input.pgt , select.pgt{
     height:25px;
     width:170px;
     border: 1px solid #999999;
-    direction:rtl;
+    
     font-size:20px;
     color:#3578CB;
     float:left;
@@ -295,16 +230,30 @@ select.pgt{
     width: 192px;
     height: 30px;
 }
+input[name="signature"]{font-size: 14px;}
 .containli{
     width:310px;
     padding-right:10px;
-    height:10px;
-    
+    height:10px;   
 }
 
-.button{
-    height:35px;
-    font-family:yekan;
-    font-size:16px;
-    padding:0px 10px 0px 10px;
-}
+.imgsign{float: left;}
+.imgsign img{height: 200px;width: 200px;border: 1px solid gray;}
+
+div.options-content{height: 100%;width: 400px;padding: 10px;}
+.optionsinput{border:1px solid #005693;float: left;height: 25px;width: 250px;font-family: nazanin;font-size: 18px;padding: 2px 5px 2px 5px;background: white;}
+.header-preview{float: left;padding: 10px;width: 350px;}
+.header-preview img{width:40%;border: 1px solid gray;}
+
+div.topform{width: 100%;padding: 5px;}
+div.rightform label{line-height:35px;}
+div.leftform label{line-height:35px;}
+div.rightform{width: 325px;float: right;padding: 5px;}
+div.leftform{width: 325px;float: right;padding: 5px;}
+div.bottomform{width: 98%;float: right;padding: 10px;}
+div.rightform input,textarea{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
+textarea[name=letter_maintext]{resize: none;height: 220px;font-family: nazanin;font-size: 20px;padding: 5px;}
+div.leftform input,textarea,select{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
+div.leftform select{width: 228px;height:27px;}
+div.bottomform textarea{float: left;width: 100%;}
+div.bottomform input{float: left;margin: 20px 5px 0px 10px;}

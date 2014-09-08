@@ -1,8 +1,11 @@
 	<div class="primary-tools">
 	<ul class="prtools">
-		<a href="http://nakhlesefid.com"><li>ایجاد نامه</li></a>
-		<a href="http://nakhlesefid.com"><li>جستجو</li></a>
-		<a href="http://nakhlesefid.com"><li>Add</li></a>
-		<a href="http://nakhlesefid.com"><li>Add</li></a>
+		<a href="<?php echo $url; ?>/dashboard/letters">
+				<li <?php if ($page == "uri=dashboard/letters") echo ' class="active"'; ?> >کارتابل وارده</li></a>
+		<a href="<?php echo $url; ?>/dashboard/newletter">
+				<li <?php if ($page == "uri=dashboard/newletter") echo ' class="active"'; ?> >ایجاد و ارسال نامه</li></a>
+		<a href="<?php echo $url; ?>/dashboard/archive">
+				<li <?php if ($page == "uri=dashboard/archive") echo ' class="active"'; ?> >بایگانی</li></a>
+
 	</ul>
 	</div>

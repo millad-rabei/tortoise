@@ -12,29 +12,19 @@ class Contact
 		// Also validate the HTTP_USER_AGENT!
 	if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']) )) {
 	//redirect to login page
-	echo '<script> window.location="login"; </script>';
+	echo '<script> window.location="../login"; </script>';
 	exit();	
 }
 else{
-
+		//show home
 		include 'header.inc.php';
 		include 'topheader.inc.php';
 		include 'main.inc.php';
-		include 'primary-dashboard-co.php';
+		//include 'dashboard-primary-tools.php';
 		include 'contact-content.php';
-		include 'dashboard-secondary-tools.php';
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
 
 }
-
-// class add
-// {
-// 	public function __construct()
-// 	{
-// 		echo 'Add contact'; 
-// 	}
-	
-// }
-?>

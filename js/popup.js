@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$('.add,.edit,.delete,.adduser').click(function(){
+	$('.add,.edit,.edituser,.delete,.adduser,.addtitle2,.addletter').click(function(){
 
 			var id = $(this).attr("id");
 			var type = $(this).attr("class");
@@ -11,11 +11,21 @@ $(document).ready(function(){
 			$.post("../createpopup.php",
 					{'id': id , 'type': type ,'table': table , 'value' : value},
 					function(data){
-						if (type=="adduser" ) {
+						if (type=="adduser" || type=="edituser" || type=="addletter") {
 							$('#popup-wrap').removeClass('small');
+							$('#popup-wrap').removeClass('big');
 							$('#popup-wrap').addClass('large');
-						}else{
+						}
+						/*						
+							to big popup 
+							else if (type=="addletter") {
+							$('#popup-wrap').removeClass('small');
 							$('#popup-wrap').removeClass('large');
+							$('#popup-wrap').addClass('big');
+						}*/
+						else{
+							$('#popup-wrap').removeClass('large');
+							$('#popup-wrap').removeClass('big');
 							$('#popup-wrap').addClass('small');
 						};
 						$('div#popup-wrap').html(data);
@@ -23,39 +33,7 @@ $(document).ready(function(){
 					}
 			 );
 
-			//soloution 2
-			/*
-			//show popup
-			if(type=="add"){
-			$.post("../createpopup.php",
-					{'id': id , 'type': type ,'table': table},
-					function(data){
-						$('div.popup-wrap').html(data);
-						$('#popup-add').show();
-					}
-			 );
-			}
 
-			if(type=="edit"){
-			$.post("../createpopup.php",
-					{'id': id , 'type': type ,'table': table},
-					function(data){
-						$('div.popup-wrap').html(data);
-						$('#popup-edit').show();
-					}
-			 );
-			}
-			if(type=="delete"){
-			$.post("../createpopup.php",
-					{'id': id , 'type': type ,'table': table},
-					function(data){
-						$('div.popup-wrap').html(data);
-						$('#popup-delete').show();
-					}
-			 );
-			}
-
-			*/
 		return false;
 	});
 

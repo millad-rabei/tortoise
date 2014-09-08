@@ -19,6 +19,8 @@ $page= ($_SERVER['QUERY_STRING']); }
 				<li <?php if (strpos($page,'uri=contact') !== FALSE) echo ' class="active"'; ?> >دفترچه تلفن</li></a>
 				<a href="<?php echo $url; ?>/profile">
 				<li <?php if (strpos($page,'uri=profile') !== FALSE) echo ' class="active"'; ?> >ویرایش مشخصات</li></a>
+				<a href="<?php echo $url; ?>/options">
+				<li <?php if (strpos($page,'uri=options') !== FALSE) echo ' class="active"'; ?> >تنظیمات</li></a>
 				<a href="<?php echo $url; ?>/about">
 				<li <?php if (strpos($page,'uri=about') !== FALSE) echo ' class="active"'; ?> >درباره نرم افزار</li></a>
 				<a href="<?php echo $url; ?>/logout">

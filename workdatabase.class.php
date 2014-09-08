@@ -5,6 +5,7 @@ Class workdatabase
 	public $table;
 	public $count_column;
 	public $id;
+  public $part;
 
 	public function fetch($tablename){
 		include 'config.php';
@@ -37,6 +38,44 @@ Class workdatabase
    		}
    		echo "</table>";
 	}
+
+//show title information
+   public function fetchtitle($tablename){
+      include 'config.php';
+      $this->table = (string) $tablename;
+      //user info
+      $db->query("SELECT * FROM $this->table");
+      $result = $db->get();
+
+          echo "
+          <input popsize='small' rel='".$this->table."' class='addtitle2' type='image' src='../images/add.png' value='' id=''><br>
+          <table class='tblresult' >
+           <tr class='trtop'>
+       <td></td>
+       <td></td>
+       <td></td>
+       <td>عنوان</td>
+       <td>گروه</td>
+       </tr>";
+       foreach ($result as $v) {
+        //print result
+          echo "
+       <tr class=''>
+       <td><input rel='".$this->table."' class='edit' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'></td>
+       <td><input rel='".$this->table."' class='delete' type='image' src='../images/delete.png' id='".$v[0]."' value='".$v[1]."'></td>
+       <td></td>
+       <td><span value='".$v[0]."'>".$v[1]."</span></td>
+       <td>";
+      $db->query("SELECT groups.groupname FROM groups INNER JOIN title ON groups.groupid=title.groupid WHERE title.titleid='$v[0]'");
+      $result2 = $db->get();
+        foreach ($result2 as $v2) { echo $v2[0]." "; }
+       echo "</td>
+       </tr>
+          <br>";
+      }
+      echo "</table>";
+   }
+
 	//show user information
 	public function fetchuser($tablename){
 		include 'config.php';
@@ -51,27 +90,22 @@ Class workdatabase
    		 <tr class='trtop'>
    		 <td></td>
    		 <td></td>
-   		 <td></td>
-   		 <td></td>
    		 <td>نام کاربری</td>
    		 <td>نام</td>
    		 <td>نام خانوادگی</td>
    		 <td>کد ملی</td>
    		 <td>سمت ها</td>
-   		 <td>گروه</td>
    		 <td>جانشین</td>
    		 <td>تاریخ ایجاد کاربر</td>
    		 </tr>
    		 ";
    		  	//print result $v[0]
    		 foreach ($result as $v) {
-
+        // go to popup.js
      echo "
      	 <tr class=''>
-   		 <td></td>
-   		 <td><input rel='".$this->table."' class='edit' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'></td>
+   		 <td><input rel='".$this->table."' class='edituser' type='image' src='../images/edit.png' id='".$v[0]."' value='".$v[1]."'></td>
    		 <td><input rel='".$this->table."' class='delete' type='image' src='../images/delete.png' id='".$v[0]."' value='".$v[1]."'></td>
-   		 <td></td>
    		 <td>".$v[1]."</td>
    		 <td>".$v[3]."</td>
    		 <td>".$v[4]."</td>
@@ -80,16 +114,15 @@ Class workdatabase
    		    //group info per user
    			$db->query("SELECT title.title FROM title INNER JOIN usertitle ON title.titleid=usertitle.titleid WHERE usertitle.userid='$v[0]'");
 			$result2 = $db->get();
-   		 	foreach ($result2 as $v2) { echo $v2[0]." "; }
-   		echo "</td>
-   		 <td>";
-   		    //group info per user
-   			$db->query("SELECT groups.groupname FROM groups INNER JOIN usergroup ON groups.groupid=usergroup.groupid WHERE usergroup.userid='$v[0]'");
-			$result3 = $db->get(); 	
-   		 	foreach ($result3 as $v3) { echo $v3[0]."<br>"; }
-   		echo "</td>
-   		 <td>";
-   		 if ($v[11]=="") echo "ندارد"; else echo $v[11];
+   		 	foreach ($result2 as $v2) { echo $v2[0]."</br>"; }
+   		echo "</td><td>";
+   		 if ($v[11]=="not-select") echo "ندارد"; else{
+        //fetch successor from user table
+            $db->query("SELECT * FROM $this->table WHERE userid='$v[11]'");
+            $result = $db->get();
+            foreach ($result as $s) {
+        echo $s[3]." ".$s[4];}
+      }
    		 echo "</td>
    		 <td>".$v[6]."</td>
    		 </tr>
@@ -97,6 +130,14 @@ Class workdatabase
    		}
    		echo "</table>";
 	}
+
+  //addletter part
+  public function fetchletter($partname){
+    include 'config.php';
+    $this->part = (string) $partname;
+    echo  $this->part;
+  }
+
 
 	public function getcolumns($tablename){
 		include 'config.php';

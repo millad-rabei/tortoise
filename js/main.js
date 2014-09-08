@@ -56,4 +56,63 @@ $('#popup-wrap').hide();
 	});
 
 	
+	//check when click on button 
+	$("#applyperm").submit(function(){
+
+			$.post($("#applyperm").attr("action"),
+					$("#applyperm :input").serializeArray(),
+					function(data){
+						$('.lr').hide();
+						$('.lr').html(data);
+						$('.lr').fadeIn( "slow" );
+					}
+			 );
+
+			return false;
+		
+	});
+
+
+
+	//Update Options
+	$("#options").submit(function(){
+
+
+		var orgname = $("input[name='orgname']").val();
+		var length1 = orgname.length;
+
+		if (length1 === 0 ){
+			alert('لطفا فیلدهای ستاره دار را وارد نمایید');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($(this)[0]);
+		    $.ajax({
+		        url: $("#options").attr("action"),
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.lr').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+
+
 });

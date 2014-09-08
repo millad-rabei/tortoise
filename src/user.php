@@ -22,7 +22,7 @@ else{
 		include 'main.inc.php';
 		include 'user-primary-tools.php';
 		include 'user-content.php';
-		include 'user-secondary-tools.php';
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
@@ -51,8 +51,7 @@ else{
 		//sec is database table name
 		$sec="user";
 		include 'user-manage-content.php';
-		include 'user-secondary-tools.php';
-
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
@@ -80,8 +79,7 @@ else{
 		include 'user-primary-tools.php';
 		$sec="title";
 		include 'user-manage-content.php';
-		include 'user-secondary-tools.php';
-
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
@@ -109,8 +107,7 @@ else{
 		include 'user-primary-tools.php';
 		$sec="groups";
 		include 'user-manage-content.php';
-		include 'user-secondary-tools.php';
-
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
@@ -138,8 +135,34 @@ else{
 		include 'user-primary-tools.php';
 		$sec="permission";
 		include 'user-manage-content.php';
-		include 'user-secondary-tools.php';
+		include 'endmain.inc.php';
+		include 'footer.inc.php';
+}
+	}
 
+}
+
+class Applypermissions
+{
+	public function __construct()
+	{
+		session_start(); // Start the session.
+		$pagetitle = "مجوزها";
+
+		// If no session value is present, redirect the user:
+		// Also validate the HTTP_USER_AGENT!
+	if (!isset($_SESSION['agent']) OR ($_SESSION['agent'] != md5($_SERVER['HTTP_USER_AGENT']) )) {
+	//redirect to login page
+	echo '<script> window.location="../login"; </script>';
+	exit();	
+}
+else{
+		include 'header.inc.php';
+		include 'topheader.inc.php';
+		include 'main.inc.php';
+		include 'user-primary-tools.php';
+		include 'user-applypermissions.php';
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}

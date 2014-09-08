@@ -22,7 +22,7 @@ else{
 		include 'main.inc.php';
 		include 'dashboard-primary-tools.php';
 		include 'dashboard-content.php';
-		include 'dashboard-secondary-tools.php';
+		include 'endmain.inc.php';
 		include 'footer.inc.php';
 }
 	}
