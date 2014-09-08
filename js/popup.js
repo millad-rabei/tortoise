@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$('.add,.edit,.edituser,.delete,.adduser,.addtitle2,.addletter').click(function(){
+	$('.add,.edit,.edituser,.delete,.adduser,.addtitle2,.addletter_internal,.addletter_incoming,.addletter_external').click(function(){
 
 			var id = $(this).attr("id");
 			var type = $(this).attr("class");
@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$.post("../createpopup.php",
 					{'id': id , 'type': type ,'table': table , 'value' : value},
 					function(data){
-						if (type=="adduser" || type=="edituser" || type=="addletter") {
+						if (type=="adduser" || type=="edituser" || type=="addletter_internal"|| type=="addletter_incoming"|| type=="addletter_external") {
 							$('#popup-wrap').removeClass('small');
 							$('#popup-wrap').removeClass('big');
 							$('#popup-wrap').addClass('large');

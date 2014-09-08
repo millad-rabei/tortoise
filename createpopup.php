@@ -45,8 +45,20 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	}	
 
 	//Add Letter form
-	if($type=="addletter"){
-	$newletter = new form($type,"نامه جدید ");
-	$newletter->addletter();
+	if($type=="addletter_internal"){
+	$newletter = new form($type,"نامه داخل سازمانی جدید ");
+	$newletter->addletter_internal();
+	}	
+
+	//Add Letter form
+	if($type=="addletter_incoming"){
+	$newletter = new form($type,"ثبت نامه وارده ");
+	$newletter->addletter_internal();
+	}	
+
+	//Add Letter form
+	if($type=="addletter_external"){
+	$newletter = new form($type,"نامه بین سازمانی جدید");
+	$newletter->addletter_internal();
 	}	
 
