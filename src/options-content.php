@@ -12,7 +12,7 @@
 ?>
 <div class="content">
 	<div class="header-preview">
-		<p>سربرگ نامه :</p>
+		<p>سربرگ موجود :</p>
 		<a target="_blank" href="<?php echo $letter_header; ?>"><img src="<?php echo $letter_header; ?>"></a>
 	</div>
 	<div class="options-content">

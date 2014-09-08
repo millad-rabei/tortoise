@@ -18,6 +18,6 @@
 
 		<div class="logos">
 			<a target="_blank" href="http://opensource.org/"><img class="opensource" src="images/opensource.png"></a>
-			<a target="_blank" href="http://github.com/nakhlesefid/sangposht"><img class="github" src="images/github.png"></a>
+			<a target="_blank" href="http://github.com/ariadev/Sangposht"><img class="github" src="images/github.png"></a>
 		</div>
 	</div>

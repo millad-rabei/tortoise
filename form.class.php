@@ -125,7 +125,11 @@ class form{
 			</div>
 
 			<div class="bottomform">
-			<label>متن اصلی : </label><textarea name="letter_maintext"></textarea><br>			
+			<label>متن اصلی : </label><textarea class="ckeditor" name="letter_maintext"></textarea>
+			<script>
+                CKEDITOR.replace("letter_maintext"  );
+            </script>
+            <br>			
 			<input name="submit" class="button" type="submit" value="ارسال">
 			<input name="submit" class="button" type="submit" value="ذخیره">
 
