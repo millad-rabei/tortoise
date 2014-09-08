@@ -252,8 +252,9 @@ div.rightform{width: 325px;float: right;padding: 5px;}
 div.leftform{width: 325px;float: right;padding: 5px;}
 div.bottomform{width: 98%;float: right;padding: 10px;}
 div.rightform input,textarea{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
-textarea[name=letter_maintext]{resize: none;height: 220px;font-family: nazanin;font-size: 20px;padding: 5px;}
+textarea[name=letter_maintext]{resize: none;height: 200px;font-family: nazanin;font-size: 20px;padding: 5px;}
 div.leftform input,textarea,select{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
 div.leftform select{width: 228px;height:27px;}
 div.bottomform textarea{float: left;width: 100%;}
 div.bottomform input{float: left;margin: 20px 5px 0px 10px;}
+div.receivers_result{overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;}

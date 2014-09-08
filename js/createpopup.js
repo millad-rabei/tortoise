@@ -1,10 +1,53 @@
 //draggable popup
 $('#popup-wrap').draggable();
 
+//select all checkbox
+$('#selecctall').click(function(event) {  //on click
+        if(this.checked) { // check select status
+            $('.receivers_checkbox').each(function() { //loop through each checkbox
+                this.checked = true;  //select all checkboxes with class "checkbox1"              
+            });
+        }else{
+            $('.receivers_checkbox').each(function() { //loop through each checkbox
+                this.checked = false; //deselect all checkboxes with class "checkbox1"                      
+            });        
+        }
+    });
+
 //close popup when click close icon
 $('#imgclose').click(function(){
 	$('#popup-wrap').hide();
 });
+
+	//search user from db {like} /////////////////////////////////////
+	$(function () {
+	var minlength = 3;
+
+    $("#likeuser").keyup(function () {
+        var that = this,
+        value = $(this).val();
+
+        if (value.length >= minlength ) {
+            $.ajax({
+                type: "GET",
+                url: "../likeuser.php",
+                data: {
+                    'search_keyword' : value
+                },
+                dataType: "text",
+                success: function(msg){
+                    //we need to check if the value is the same
+                    if (value==$(that).val()) {
+                    //Receiving the result of search here
+                     $('.receivers_result').html(msg);
+                    }
+                }
+            });
+        }
+    });
+});
+////////////////////////////////////////////////////////////    
+
 	//Update Options
 	$("#options").submit(function(){
 

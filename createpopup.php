@@ -53,12 +53,12 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	//Add Letter form
 	if($type=="addletter_incoming"){
 	$newletter = new form($type,"ثبت نامه وارده ");
-	$newletter->addletter_internal();
+	$newletter->addletter_incoming();
 	}	
 
 	//Add Letter form
 	if($type=="addletter_external"){
 	$newletter = new form($type,"نامه بین سازمانی جدید");
-	$newletter->addletter_internal();
+	$newletter->addletter_external();
 	}	
 

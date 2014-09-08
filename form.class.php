@@ -100,17 +100,14 @@ class form{
 		echo '
 			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data">
 
-			<div class="topform">
-			<label>نوع نامه :</label>
-			<input id="type1" name="letter_type" type="radio" class="letter_type" value="internal" checked><label for="type1">داخلی</label> 
-			<input id="type2" name="letter_type" type="radio" class="letter_type" value="incoming" ><label for="type2">وارده</label> 
-			<input id="type3" name="letter_type" type="radio" class="letter_type" value="external" ><label for="type3">صادره</label>
-			</div>
+			
 
 			<div class="rightform">
 			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
 			<label>موضوع : </label><input type="text" name="letter_subject"><br>
-			<label>انتخاب گیرندگان : </label><input type="text" name="letter_subject"><br>
+			<label>انتخاب گیرندگان : </label><input type="text" name="likeuser" id="likeuser"><br>
+			<input type="checkbox" id="selecctall"/>انتخاب همه<br>
+			<div class="receivers_result"></div>
 			</div>
 
 			<div class="leftform">
@@ -125,10 +122,8 @@ class form{
 			</div>
 
 			<div class="bottomform">
-			<label>متن اصلی : </label><textarea class="ckeditor" name="letter_maintext"></textarea>
-			<script>
-                CKEDITOR.replace("letter_maintext"  );
-            </script>
+			<label>متن اصلی : </label><textarea name="letter_maintext"></textarea>
+
             <br>			
 			<input name="submit" class="button" type="submit" value="ارسال">
 			<input name="submit" class="button" type="submit" value="ذخیره">

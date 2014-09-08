@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 //show pgt info
 $.post("../getpgt.php",
 	$("#secform :input").serializeArray(),
