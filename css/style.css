@@ -251,10 +251,14 @@ div.leftform label{line-height:35px;}
 div.rightform{width: 325px;float: right;padding: 5px;}
 div.leftform{width: 325px;float: right;padding: 5px;}
 div.bottomform{width: 98%;float: right;padding: 10px;}
-div.rightform input,textarea{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
+div.rightform input[type=text],textarea{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
 textarea[name=letter_maintext]{resize: none;height: 200px;font-family: nazanin;font-size: 20px;padding: 5px;}
 div.leftform input,textarea,select{float: left;width: 220px;font-family: yekan;font-size: 13px;padding:0px 3px 0px 3px;height:25px;}
 div.leftform select{width: 228px;height:27px;}
-div.bottomform textarea{float: left;width: 100%;}
+div.leftform input[type=file]{border-right:  1px solid  #B6B6B6;border-left:  1px solid  #B6B6B6;}
+div.leftform input[type=button]{width: auto;height: 30px;}
+div.bottomform textarea{float: left;width: 100%;height: 150px;}
 div.bottomform input{float: left;margin: 20px 5px 0px 10px;}
-div.receivers_result{overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;}
+div.receivers_result{font-family:yekan;font-size:12px;overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;}
+div.receivers_result ul{display: inline;}
+div.attachment_result{padding: 5px;direction: ltr;font-family:yekan;font-size:12px;overflow-y: scroll;height: 90px;width: 96%;border: 1px solid #B6B6B6;}

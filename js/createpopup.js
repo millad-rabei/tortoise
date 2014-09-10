@@ -1,5 +1,9 @@
 //draggable popup
 $('#popup-wrap').draggable();
+//close popup when click close icon
+$('#imgclose').click(function(){
+	$('#popup-wrap').hide();
+});
 
 //select all checkbox
 $('#selecctall').click(function(event) {  //on click
@@ -14,13 +18,44 @@ $('#selecctall').click(function(event) {  //on click
         }
     });
 
-//close popup when click close icon
-$('#imgclose').click(function(){
-	$('#popup-wrap').hide();
-});
+//search recievers/////////////////////////////////////////
+(function ($) {
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+ 
+  function filterList(header, list) { 
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text"});
+    $(form).append(input).appendTo(header);
+ 
+    $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+ 	  
+		  $matches = $(list).find('a:Contains(' + filter + ')').parent();
+		  $('li', list).not($matches).slideUp();
+		  $matches.slideDown();
+		    
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+    .keyup( function () {
+        $(this).change();
+    });
+  }
+ 
+  $(function () {
+    filterList($("#form"), $("#list"));
+  });
+}(jQuery));
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//search user from db {like} /////////////////////////////////////
-	$(function () {
+/*	$(function () {
 	var minlength = 3;
 
     $("#likeuser").keyup(function () {
@@ -45,7 +80,7 @@ $('#imgclose').click(function(){
             });
         }
     });
-});
+});*/
 ////////////////////////////////////////////////////////////    
 
 	//Update Options
@@ -85,6 +120,48 @@ $('#imgclose').click(function(){
 			return false;
 		}
 	});
+
+
+		//upload letter attachments
+	$("#upload_attachment").click(function(){
+
+		var attchfile = $("input[name='letter_attachment']").val();
+		var length1 = attchfile.length;
+
+		if (length1 === 0 ){
+			alert('لطفا فایل ضمیمه را انتخاب نمایید');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../upload_attachment.php',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.attachment_result').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+
 	//Save New PGT 
 	$("#pgt-form-add").submit(function(){
 		

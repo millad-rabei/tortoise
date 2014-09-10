@@ -99,15 +99,43 @@ class form{
 		public function addletter_internal(){
 		echo '
 			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data">
-
-			
-
 			<div class="rightform">
 			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
 			<label>موضوع : </label><input type="text" name="letter_subject"><br>
-			<label>انتخاب گیرندگان : </label><input type="text" name="likeuser" id="likeuser"><br>
-			<input type="checkbox" id="selecctall"/>انتخاب همه<br>
-			<div class="receivers_result"></div>
+			<div id="form" ></div>
+			<label>انتخاب گیرندگان : </label><br>
+
+			<input type="checkbox" id="selecctall"/><label for="selecctall">انتخاب همه</label><br>
+			<div class="receivers_result">
+			  <ul id="list">';
+				include 'config.php';
+				  //usertitle info
+				$db->query("SELECT * FROM usertitle");
+				$result = $db->get();
+				foreach ($result as $usertitle) {
+				echo '<li><a><input class="receivers_checkbox" type="checkbox" name="check[]" id="'.$usertitle[0].'" value="'.$usertitle[0].'">';
+				//به دست آوردن نام و نام خانوادگی
+				$db->query("SELECT user.firstname,user.lastname FROM user INNER JOIN usertitle ON user.userid=usertitle.userid WHERE usertitle.usertitleid='$usertitle[0]'");
+				$result2 = $db->get();
+				foreach ($result2 as $v) {
+					foreach ($v as $user) {
+        				echo '<label for="'.$usertitle[0].'">'.$v[0]." ".$v[1]."</label>";break;
+    					}
+    				}
+    			//به دست آوردن سمت
+				$db->query("SELECT title.title FROM title INNER JOIN usertitle ON title.titleid=usertitle.titleid WHERE usertitle.usertitleid='$usertitle[0]'");
+				$result2 = $db->get();
+				foreach ($result2 as $v) {
+					foreach ($v as $user) {
+        				echo " [".$v[0]."]";break;
+    					}
+    				}
+				echo '</a></li>'; 
+				}
+			echo '
+				</ul> 
+			</div>
+
 			</div>
 
 			<div class="leftform">
@@ -118,7 +146,9 @@ class form{
 			<option value="eghdam">اقدام</option>
 			<option value="eghdam">اطلاع</option>
 			</select><br>
-			<label>فایل های ضمیمه : </label><input type="text" name="letter_subject"><br>
+			<label>فایل های ضمیمه : </label><input type="file" name="letter_attachment"><br>
+			<label>ضمیمه ها :</label><input id="upload_attachment" type="button" value="ضمیمه کردن">
+			<div class="attachment_result"></div>
 			</div>
 
 			<div class="bottomform">
