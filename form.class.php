@@ -98,7 +98,7 @@ class form{
 		// to manage open workdatabase.class.php
 		public function addletter_internal(){
 		echo '
-			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data">
+			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data" accept-charset="utf-8">
 			<div class="rightform">
 			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
 			<label>موضوع : </label><input type="text" name="letter_subject"><br>
@@ -148,7 +148,7 @@ class form{
 			</select><br>
 			<label>فایل های ضمیمه : </label><input type="file" name="letter_attachment"><br>
 			<label>ضمیمه ها :</label><input id="upload_attachment" type="button" value="ضمیمه کردن">
-			<div class="attachment_result"></div>
+			<div class="attachment_result"><ul id="attach_result"></ul></div>
 			</div>
 
 			<div class="bottomform">

@@ -259,6 +259,7 @@ div.leftform input[type=file]{border-right:  1px solid  #B6B6B6;border-left:  1p
 div.leftform input[type=button]{width: auto;height: 30px;}
 div.bottomform textarea{float: left;width: 100%;height: 150px;}
 div.bottomform input{float: left;margin: 20px 5px 0px 10px;}
-div.receivers_result{font-family:yekan;font-size:12px;overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;}
+div.receivers_result{font-family:yekan;font-size:12px;overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;padding-right: 2px;}
 div.receivers_result ul{display: inline;}
-div.attachment_result{padding: 5px;direction: ltr;font-family:yekan;font-size:12px;overflow-y: scroll;height: 90px;width: 96%;border: 1px solid #B6B6B6;}
+div.attachment_result{font-family:english;font-size:12px;overflow-y: scroll;height: 100px;width: 100%;border: 1px solid #B6B6B6;padding-left: 2px;direction:ltr;}
+div.attachment_result ul{display: inline;}

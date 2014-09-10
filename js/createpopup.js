@@ -82,6 +82,44 @@ $('#selecctall').click(function(event) {  //on click
     });
 });*/
 ////////////////////////////////////////////////////////////    
+	//upload letter attachments
+	$("#upload_attachment").click(function(){
+
+		var attchfile = $("input[name='letter_attachment']").val();
+		var length1 = attchfile.length;
+
+		if (length1 === 0 ){
+			alert('لطفا فایل ضمیمه را انتخاب نمایید');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../upload_attachment.php',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('#attach_result').append(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
 
 	//Update Options
 	$("#options").submit(function(){
@@ -122,45 +160,7 @@ $('#selecctall').click(function(event) {  //on click
 	});
 
 
-		//upload letter attachments
-	$("#upload_attachment").click(function(){
-
-		var attchfile = $("input[name='letter_attachment']").val();
-		var length1 = attchfile.length;
-
-		if (length1 === 0 ){
-			alert('لطفا فایل ضمیمه را انتخاب نمایید');
-			 return false;
-		}
-		else{
-
-			$('.error,.ok').hide();
-			//show loading ...
-			$('#loading').show();
-			//to upload form and FILE must use this method
-			var formData = new FormData($("#addletter")[0]);
-
-		    $.ajax({
-		        url: '../upload_attachment.php',
-		        type: 'POST',
-		        data: formData,
-		        async: false,
-		        success: function (data) {
-		            $('.attachment_result').html(data);
-						$('.error,.ok').hide();
-						$('#loading').hide();
-						$('.error,.ok').fadeIn( "slow" );
-		        },
-		        cache: false,
-		        contentType: false,
-		        processData: false
-		    });
-
-			return false;
-		}
-	});
-
-
+	
 
 	//Save New PGT 
 	$("#pgt-form-add").submit(function(){
