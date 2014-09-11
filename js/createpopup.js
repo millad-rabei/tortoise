@@ -121,6 +121,183 @@ $('#selecctall').click(function(event) {  //on click
 	});
 
 
+//Send letter 
+	$("#send").click(function(){
+
+		var subject = $("input[name='letter_subject']").val();
+		var length1 = subject.length;
+		var maintext = $("textarea[name='letter_maintext']").val();
+		var length2 = maintext.length;
+		var receivers = $("input[name='receivers[]']").val();
+		var length3 = receivers.length;
+		if (length1 === 0 || length2 === 0 || length3 === 0){
+			alert('فیلدهای موضوع - گیرندگان و متن اصلی ضروری می باشد.');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../addletter.php?status=send',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.lr').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+//draft letter 
+	$("#draft").click(function(){
+
+		var subject = $("input[name='letter_subject']").val();
+		var length1 = subject.length;
+		var maintext = $("textarea[name='letter_maintext']").val();
+		var length2 = maintext.length;
+		var receivers = $("input[name='receivers[]']").val();
+		var length3 = receivers.length;
+		if (length1 === 0 || length2 === 0 || length3 === 0){
+			alert('فیلدهای موضوع - گیرندگان و متن اصلی ضروری می باشد.');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../addletter.php?status=draft',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.lr').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+//Save incoming letter 
+	$("#incoming").click(function(){
+		var number = $("input[name='letter_number']").val();
+		var length1 = number.length;
+		var docnumber = $("input[name='docnumber']").val();
+		var length2 = docnumber.length;
+		var sender = $("input[name='sender']").val();
+		var length3 = sender.length;
+		var docdate = $("input[name='docdate']").val();
+		var length4 = docdate.length;
+		var attach_check = $("input[name='attach_check[]']").val();
+		if (attach_check === undefined){
+			alert("تصویر سند حتما باید ضمیمه شده باشد.");
+			return false;
+		}
+		else if (length1 === 0 || length2 === 0 || length3 === 0 || length4 === 0){
+			alert('کلیه قسمت ها باید کامل شوند.');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../addletter.php?status=incoming',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.lr').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+//Save external letter 
+	$("#external").click(function(){
+
+		var number = $("input[name='letter_number']").val();
+		var length1 = number.length;
+		var letter_subject = $("input[name='letter_subject']").val();
+		var length2 = letter_subject.length;
+		var to = $("input[name='to']").val();
+		var length3 = to.length;
+		var letter_maintext = $("textarea[name='letter_maintext']").val();
+		var length4 = letter_maintext.length;
+		if (length1 === 0 || length2 === 0 || length3 === 0 || length4 === 0){
+			alert('کلیه قسمت ها باید کامل شوند.');
+			 return false;
+		}
+		else{
+
+			$('.error,.ok').hide();
+			//show loading ...
+			$('#loading').show();
+			//to upload form and FILE must use this method
+			var formData = new FormData($("#addletter")[0]);
+
+		    $.ajax({
+		        url: '../addletter.php?status=external',
+		        type: 'POST',
+		        data: formData,
+		        async: false,
+		        success: function (data) {
+		            $('.lr').html(data);
+						$('.error,.ok').hide();
+						$('#loading').hide();
+						$('.error,.ok').fadeIn( "slow" );
+		        },
+		        cache: false,
+		        contentType: false,
+		        processData: false
+		    });
+
+			return false;
+		}
+	});
+
+
+
 	//Update Options
 	$("#options").submit(function(){
 

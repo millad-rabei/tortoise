@@ -11,7 +11,6 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	<script type="text/javascript" src="<?php echo $url; ?>/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo $url; ?>/js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="<?php echo $url; ?>/js/main.js"></script>
-	<script type="text/javascript" src="<?php echo $url; ?>/ckeditor/ckeditor.js"></script>
 <title><?php //echo $pagetitle." :: اتوماسیون اداری سنگ پشت"; ?>
 <?php
 	echo $pagetitle;

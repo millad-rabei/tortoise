@@ -90,15 +90,16 @@ usertitle      MEDIUMINT  UNSIGNED          NOT NULL,
 userid         MEDIUMINT   UNSIGNED           NOT NULL,
 parentletterid MEDIUMINT  UNSIGNED,
 letternumber   VARCHAR( 50 )                NOT NULL,
+docnumber   	VARCHAR( 50 ) ,
+docdate   		VARCHAR( 50 ) ,
 date           DATETIME  NOT NULL,
-fromuser           VARCHAR( 30 )                NOT NULL,
-touser             VARCHAR( 30 )                NOT NULL,
+sender           VARCHAR( 400 )          NOT NULL,
+touser           VARCHAR( 400 )          NOT NULL,
 type           VARCHAR( 30 )                NOT NULL,
 subject        VARCHAR( 30 )                NOT NULL,
 mainText       VARCHAR( 30 )                NOT NULL,
-attachment     VARCHAR( 30 )               ,
 status         VARCHAR( 30 )                NOT NULL,
-hasattachment  BINARY 					NOT NULL,
+hasattachment  VARCHAR( 10 )				NOT NULL,
 eghdam         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY (letterid),
 FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE
@@ -107,21 +108,21 @@ FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE
 
 CREATE TABLE receivers(
 receiverid  MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-userid          MEDIUMINT   UNSIGNED        NOT NULL,
+receiver        MEDIUMINT   UNSIGNED        NOT NULL,
 letterid        MEDIUMINT    UNSIGNED          NOT NULL, 
 receivertype    VARCHAR( 100 )                NOT NULL,
-viewed            BINARY	NOT NULL,
+view           VARCHAR( 10 )  	NOT NULL,
 PRIMARY KEY (receiverid),
-FOREIGN KEY (userid) REFERENCES user(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN KEY (receiver) REFERENCES usertitle(usertitleid) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (letterid) REFERENCES letter(letterid) ON DELETE CASCADE ON UPDATE CASCADE
 )DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE attachment(
 attachmentid MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
-letterid         MEDIUMINT  UNSIGNED            NOT NULL,
-filename         VARCHAR( 30 )                NOT NULL,
-address          VARCHAR( 30 )                NOT NULL,
+letterid         MEDIUMINT  UNSIGNED          NOT NULL,
+filename         VARCHAR( 300 )                NOT NULL,
+address          VARCHAR( 500 )                NOT NULL,
 filesize         VARCHAR( 30 )                NOT NULL,
 PRIMARY KEY (attachmentid),
 FOREIGN KEY (letterid) REFERENCES letter(letterid) ON DELETE CASCADE ON UPDATE CASCADE
@@ -133,3 +134,18 @@ option_name  VARCHAR( 200 ) NOT NULL,
 option_value  VARCHAR( 200 )  NOT NULL,
 PRIMARY KEY (optionid)
 )DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+---options table ---------
+organization_name
+letter_header
+deadline_archive
+
+
+6f8f57715090da2632453988d9a1501b
+
+successor : not-select

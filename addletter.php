@@ -1,78 +1,61 @@
 <?php
 include 'config.php';
+//set defaults 
+$title ="";
+$docnumber = "";
+$sender = "";
+$touser = "";
+$docdate = "";
+$user_id = $_POST['user_id'];
+$receivertype = "مستقیم";
+$view = "no";
 
-$pgt = $_POST['pgt'];
-$section = $_POST['section'];
-$whatwork = $_POST['whatwork'];
-$id = $_POST['id'];
+if (isset($_POST['letter_type'])){$letter_type = $_POST['letter_type'];}
+if (isset($_GET["status"])){$letter_status = $_GET["status"];} //draft , send
+if (isset($_POST['letter_number'])){$letter_number= $_POST['letter_number'];}
+if (isset($_POST['letter_subject'])){$letter_subject= $_POST['letter_subject'];}
+if (isset($_POST['title'])){$title= $_POST['title'];}
+if (isset($_POST['letter_action'])){$letter_action= $_POST['letter_action'];}
+if (isset($_POST['letter_maintext'])){$letter_maintext= $_POST['letter_maintext'];}
+if (isset($_POST['sender'])){$sender= $_POST['sender'];}
+if (isset($_POST['to'])){$touser= $_POST['to'];}
+if (isset($_POST['docnumber'])){$docnumber= $_POST['docnumber'];}
+if (isset($_POST['docdate'])){$docdate = $_POST['docdate'];}
 
-//check is not duplicate
-if ($section=='permission')
-$db->query("SELECT * FROM permission WHERE(permissionname='$pgt')");
-if ($section=='groups')
-$db->query("SELECT * FROM groups WHERE(groupname='$pgt')");
-if ($section=='title')
-$db->query("SELECT * FROM title WHERE(title='$pgt')");
-if ($section=='user')
-$db->query("SELECT * FROM user WHERE(username='$pgt')");
 
-$result = $db->get();
+if (isset($_POST['attach_check'])) {
+	$hasattachment="yes";
+}else
+{$hasattachment="no";}
 
-	if ($whatwork=="add"){
-		if (!empty($result)){
-	//Error message
-	echo "<div class='error'>مقدار تکراری می باشد</div>";
-	}
-	else{
-	//save into table
-	if ($section=='permission')
-	$db->query("INSERT INTO permission (permissionname) VALUES ('$pgt') ");
-	if ($section=='groups')
-	$db->query("INSERT INTO groups (groupname) VALUES ('$pgt') ");
-	if ($section=='title')
-	$db->query("INSERT INTO title (title) VALUES ('$pgt') ");
+//create Letter
+$db->query("INSERT INTO letter (usertitle,userid,letternumber,docnumber,docdate,date,sender,touser,type,subject,mainText,status,hasattachment,eghdam) 
+						VALUES ('$title','$user_id','$letter_number','$docnumber','$docdate',NOW(),'$sender','$touser','$letter_type','$letter_subject','$letter_maintext','$letter_status','$hasattachment','$letter_action') ");
 
-	echo "<script>$('#popup-wrap').hide();</script><div class='ok'>رکورد مورد نظر با موفقیت اضافه شد</div>";
-	}
-	}
-	//Edit table record
-	if ($whatwork=="edit"){
-		if (!empty($result)){
-	//Error message
-	echo "<div class='error'>لطفا مقدار را تغییر دهید</div>";
-	}
-	else{
-			//edit table record
-	if ($section=='permission')
-	$db->query("UPDATE permission SET permissionname='$pgt' WHERE permissionid='$id'");
-	if ($section=='groups')
-	$db->query("UPDATE groups SET groupname='$pgt' WHERE groupid='$id'");
-	if ($section=='title')
-	$db->query("UPDATE title SET title='$pgt' WHERE titleid='$id'");
 
-	echo "<script>$('#popup-wrap').hide();</script><div class='ok'>رکورد مورد نظر با موفقیت ویرایش شد</div>";
-	}
-	}
-	//delete table record
-	if ($whatwork=="delete"){
-					//edit table record
-	if ($section=='permission')
-	$db->query("DELETE FROM permission WHERE permissionid='$id'");
-	if ($section=='groups')
-	$db->query("DELETE FROM groups WHERE groupid='$id'");
-	if ($section=='title')
-	$db->query("DELETE FROM title WHERE titleid='$id'");
-	if ($section=='user')
-	$db->query("DELETE FROM user WHERE userid='$id'");
-
-	echo "<script>$('#popup-wrap').hide();</script><div class='ok'>رکورد مورد نظر با موفقیت حذف شد</div>";
+//get letter id (latest letter)
+$db->query("SELECT letterid FROM letter ORDER BY letterid DESC LIMIT 1");
+    	$result = $db->get();
+    	foreach ($result as $v) {
+    		$letterid=$v[0];
+    	}
+//all recievers
+	if (isset($_POST['receivers'])) {
+	  	$receiversArray = $_POST['receivers'];
+	    for ($i=0; $i<count($receiversArray); $i++) {
+	    	$receiver=$receiversArray[$i];
+	        $db->query("INSERT INTO receivers (receiver,letterid,receivertype,view) VALUES ('$receiver','$letterid','$receivertype','$view') ");
+	    }
 	}
 
+//all attachments
+	if (isset($_POST['attach_check'])) {
+	  	$attach_checkArray = $_POST['attach_check'];
+	    for ($j=0; $j<count($attach_checkArray); $j++) {
+			$address="attachments/".$attach_checkArray[$j];
+	        $db->query("INSERT INTO attachment (letterid,address) VALUES ('$letterid','$address') ");
+	    }
+	}
 
-//save title
-	if ($whatwork=="addtitle"){
-	$grid = $_POST['grname'];
-	$db->query("INSERT INTO title (title,groupid) VALUES ('$pgt','$grid') ");
+//print msg and close popup
 	echo "<script>$('#popup-wrap').hide();</script><div class='ok'>رکورد مورد نظر با موفقیت ذخیره شد</div>";
-}
-

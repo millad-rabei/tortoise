@@ -7,6 +7,7 @@ class form{
 		public $type;
 		public $id;
 		public $value;
+		public $userid;
 		function __construct($type,$title){
 				$this->type = (string) $type;
 				$this->title = (string) $title;
@@ -96,11 +97,16 @@ class form{
 
 
 		// to manage open workdatabase.class.php
-		public function addletter_internal(){
+		public function addletter_internal($userid){
+			$this->userid = (int) $userid;
+			include 'config.php';
+			include 'letternumber.function.php';
+			$type="internal";
+
 		echo '
 			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data" accept-charset="utf-8">
 			<div class="rightform">
-			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
+			<label>شماره نامه : </label><input type="text" value="'.LetterNumber($type).'" name="letter_number" ><br>
 			<label>موضوع : </label><input type="text" name="letter_subject"><br>
 			<div id="form" ></div>
 			<label>انتخاب گیرندگان : </label><br>
@@ -108,12 +114,11 @@ class form{
 			<input type="checkbox" id="selecctall"/><label for="selecctall">انتخاب همه</label><br>
 			<div class="receivers_result">
 			  <ul id="list">';
-				include 'config.php';
 				  //usertitle info
 				$db->query("SELECT * FROM usertitle");
 				$result = $db->get();
 				foreach ($result as $usertitle) {
-				echo '<li><a><input class="receivers_checkbox" type="checkbox" name="check[]" id="'.$usertitle[0].'" value="'.$usertitle[0].'">';
+				echo '<li><a><input class="receivers_checkbox" type="checkbox" name="receivers[]" id="'.$usertitle[0].'" value="'.$usertitle[0].'">';
 				//به دست آوردن نام و نام خانوادگی
 				$db->query("SELECT user.firstname,user.lastname FROM user INNER JOIN usertitle ON user.userid=usertitle.userid WHERE usertitle.usertitleid='$usertitle[0]'");
 				$result2 = $db->get();
@@ -139,15 +144,27 @@ class form{
 			</div>
 
 			<div class="leftform">
-			<label>از : </label><input type="text" value="" name="letter_from" disabled><br>
-			<label>جهت : </label><select name="letter_acion">
-			<option value="eghdam">استحضار</option>
-			<option value="eghdam">دعوت به جلسه</option>
-			<option value="eghdam">اقدام</option>
-			<option value="eghdam">اطلاع</option>
+			<label>ارسال از سمت : </label>
+			<select name="title">';
+			
+			$db->query("SELECT title.titleid,title.title FROM title INNER JOIN usertitle ON title.titleid=usertitle.titleid WHERE usertitle.userid='$this->userid'");
+				$result3 = $db->get();
+				foreach ($result3 as $v) {
+					foreach ($v as $user) {
+					echo '<option value="'.$v[0].'">'.$v[1].'</option>';break;
+					}
+				}
+			echo '
+			</select>
+			<br>
+			<label>جهت : </label><select name="letter_action">
+			<option value="استحضار">استحضار</option>
+			<option value="دعوت به جلسه">دعوت به جلسه</option>
+			<option value="اقدام">اقدام</option>
+			<option value="اطلاع">اطلاع</option>
 			</select><br>
 			<label>فایل های ضمیمه : </label><input type="file" name="letter_attachment"><br>
-			<label>ضمیمه ها :</label><input id="upload_attachment" type="button" value="ضمیمه کردن">
+			<input id="upload_attachment" type="button" value="ضمیمه کردن"><label>ضمیمه ها :</label><br>
 			<div class="attachment_result"><ul id="attach_result"></ul></div>
 			</div>
 
@@ -155,9 +172,10 @@ class form{
 			<label>متن اصلی : </label><textarea name="letter_maintext"></textarea>
 
             <br>			
-			<input name="submit" class="button" type="submit" value="ارسال">
-			<input name="submit" class="button" type="submit" value="ذخیره">
-
+			<input type="hidden" name="user_id" value="'.$this->userid.'">
+			<input type="hidden" name="letter_type" value="'.$type.'">
+			<input class="button" id="send" type="button" value="ارسال">
+			<input class="button" id="draft" type="button" value="ذخیره پیشنویس">
 			</div>
 			</form>';
 		//close the pop up
@@ -166,43 +184,34 @@ class form{
 
 
 		// to manage open workdatabase.class.php
-		public function addletter_incoming(){
+		public function addletter_incoming($userid){
+			$this->userid = (int) $userid;
+			include 'config.php';
+			include 'letternumber.function.php';
+			$type="incoming";
+
 		echo '
-			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data">
-
-			<div class="topform">
-			<label>نوع نامه :</label>
-			<input id="type1" name="letter_type" type="radio" class="letter_type" value="internal" checked><label for="type1">داخلی</label> 
-			<input id="type2" name="letter_type" type="radio" class="letter_type" value="incoming" ><label for="type2">وارده</label> 
-			<input id="type3" name="letter_type" type="radio" class="letter_type" value="external" ><label for="type3">صادره</label>
-			</div>
-
+			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data" accept-charset="utf-8">
 			<div class="rightform">
-			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
-			<label>موضوع : </label><input type="text" name="letter_subject"><br>
-			<label>انتخاب گیرندگان : </label><input type="text" name="letter_subject"><br>
+			<label>شماره نامه : </label><input type="text" value="'.LetterNumber($type).'" name="letter_number" ><br>
+			<label>شماره سند : </label><input type="text" name="docnumber"><br>
 			</div>
 
 			<div class="leftform">
-			<label>از : </label><input type="text" value="" name="letter_from" disabled><br>
-			<label>جهت : </label><select name="letter_acion">
-			<option value="eghdam">استحضار</option>
-			<option value="eghdam">دعوت به جلسه</option>
-			<option value="eghdam">اقدام</option>
-			<option value="eghdam">اطلاع</option>
-			</select><br>
-			<label>فایل های ضمیمه : </label><input type="text" name="letter_subject"><br>
+			<label>فرستنده : </label><input type="text" name="sender"><br>
+			<label>تاریخ سند : </label><input type="text" name="docdate"><br>
+			<label>تصویر سند : </label><input type="file" name="letter_attachment"><br>
+			<input id="upload_attachment" type="button" value="ضمیمه کردن">
 			</div>
 
 			<div class="bottomform">
-			<label>متن اصلی : </label><textarea class="ckeditor" name="letter_maintext"></textarea>
-			<script>
-                CKEDITOR.replace("letter_maintext"  );
-            </script>
-            <br>			
-			<input name="submit" class="button" type="submit" value="ارسال">
-			<input name="submit" class="button" type="submit" value="ذخیره">
-
+			<label>تصاویر سند :</label><br>
+			<div class="attachment_result"><ul id="attach_result">
+			
+			</ul></div>
+			<input type="hidden" name="user_id" value="'.$this->userid.'">
+			<input type="hidden" name="letter_type" value="'.$type.'">
+			<input class="button" id="incoming" type="button" value="ثبت سند در سیستم">
 			</div>
 			</form>';
 		//close the pop up
@@ -210,43 +219,37 @@ class form{
 		}
 
 		// to manage open workdatabase.class.php
-		public function addletter_external(){
+		public function addletter_external($userid){
+			$this->userid = (int) $userid;
+			include 'config.php';
+			include 'letternumber.function.php';
+			$type="external";
+
 		echo '
-			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data">
-
-			<div class="topform">
-			<label>نوع نامه :</label>
-			<input id="type1" name="letter_type" type="radio" class="letter_type" value="internal" checked><label for="type1">داخلی</label> 
-			<input id="type2" name="letter_type" type="radio" class="letter_type" value="incoming" ><label for="type2">وارده</label> 
-			<input id="type3" name="letter_type" type="radio" class="letter_type" value="external" ><label for="type3">صادره</label>
-			</div>
-
+			<form id="addletter" method="post" action="../addletter.php" enctype="multipart/form-data" accept-charset="utf-8">
 			<div class="rightform">
-			<label>شماره نامه : </label><input type="text" value="1111" name="letter_number" disabled><br>
+			<label>شماره نامه : </label><input type="text" value="'.LetterNumber($type).'" name="letter_number" ><br>
 			<label>موضوع : </label><input type="text" name="letter_subject"><br>
-			<label>انتخاب گیرندگان : </label><input type="text" name="letter_subject"><br>
 			</div>
 
 			<div class="leftform">
-			<label>از : </label><input type="text" value="" name="letter_from" disabled><br>
-			<label>جهت : </label><select name="letter_acion">
-			<option value="eghdam">استحضار</option>
-			<option value="eghdam">دعوت به جلسه</option>
-			<option value="eghdam">اقدام</option>
-			<option value="eghdam">اطلاع</option>
+			<label>گیرنده : </label><input type="text" name="to"><br>
+			<label>جهت : </label><select name="letter_action">
+			<option value="استحضار">استحضار</option>
+			<option value="دعوت به جلسه">دعوت به جلسه</option>
+			<option value="اقدام">اقدام</option>
+			<option value="اطلاع">اطلاع</option>
 			</select><br>
-			<label>فایل های ضمیمه : </label><input type="text" name="letter_subject"><br>
 			</div>
 
 			<div class="bottomform">
-			<label>متن اصلی : </label><textarea class="ckeditor" name="letter_maintext"></textarea>
-			<script>
-                CKEDITOR.replace("letter_maintext"  );
-            </script>
-            <br>			
-			<input name="submit" class="button" type="submit" value="ارسال">
-			<input name="submit" class="button" type="submit" value="ذخیره">
+			<label>متن اصلی : </label><textarea name="letter_maintext"></textarea>
 
+            <br>
+			<input type="hidden" name="user_id" value="'.$this->userid.'">
+			<input type="hidden" name="letter_type" value="'.$type.'">
+			<input type="hidden" name="title" value="">
+			<input class="button" id="external" type="button" value="ثبت سند در سیستم">
 			</div>
 			</form>';
 		//close the pop up

@@ -12,7 +12,7 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	if (isset($_POST['type'])){$type = $_POST['type'];}
 	if (isset($_POST['table'])){$table = $_POST['table'];}
 	if (isset($_POST['value'])){$value = $_POST['value'];}
-
+	if (isset($_POST['userid'])){$userid = $_POST['userid'];}
 	//add form	
 	if($type=="add"){
 	$addpermission = new form($type,"اضافه کردن ");
@@ -47,18 +47,18 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	//Add Letter form
 	if($type=="addletter_internal"){
 	$newletter = new form($type,"نامه داخل سازمانی جدید ");
-	$newletter->addletter_internal();
+	$newletter->addletter_internal($userid);
 	}	
 
 	//Add Letter form
 	if($type=="addletter_incoming"){
 	$newletter = new form($type,"ثبت نامه وارده ");
-	$newletter->addletter_incoming();
+	$newletter->addletter_incoming($userid);
 	}	
 
 	//Add Letter form
 	if($type=="addletter_external"){
-	$newletter = new form($type,"نامه بین سازمانی جدید");
-	$newletter->addletter_external();
+	$newletter = new form($type,"نامه خارج سازمانی جدید");
+	$newletter->addletter_external($userid);
 	}	
 

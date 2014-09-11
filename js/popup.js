@@ -1,15 +1,16 @@
 $(document).ready(function(){
 
 	$('.add,.edit,.edituser,.delete,.adduser,.addtitle2,.addletter_internal,.addletter_incoming,.addletter_external').click(function(){
-
+			$('#loading').show();
 			var id = $(this).attr("id");
 			var type = $(this).attr("class");
 			var table = $(this).attr("rel");
 			var value = $(this).attr("value");
-	
+			var userid = $(this).attr("userid");
+			
 			//soloution 1
 			$.post("../createpopup.php",
-					{'id': id , 'type': type ,'table': table , 'value' : value},
+					{'id': id , 'type': type ,'table': table , 'value' : value , 'userid' : userid},
 					function(data){
 						if (type=="adduser" || type=="edituser" || type=="addletter_internal"|| type=="addletter_incoming"|| type=="addletter_external") {
 							$('#popup-wrap').removeClass('small');
@@ -30,6 +31,7 @@ $(document).ready(function(){
 						};
 						$('div#popup-wrap').html(data);
 						$('#popup-wrap').show();
+						$('#loading').hide();
 					}
 			 );
 
