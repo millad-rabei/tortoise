@@ -96,7 +96,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'left'},  500 );
+			$('#loading').show();
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -138,7 +138,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'left'},  500 );
+			$('#loading').show();
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -187,7 +187,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'left'},  500 );
+			$('#loading').show();
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -241,7 +241,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'left'},  500 );
+			$('#loading').show();
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -291,7 +291,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'left'},  500 );
+			$('#loading').show();
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 

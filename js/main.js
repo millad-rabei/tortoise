@@ -40,6 +40,8 @@ $('#popup-wrap').hide();
 			 return false;
 		}
 		else{
+			//show loading first
+			$('#loading').show('slide', {direction: 'left'}, 500 );
 			$( '.login-username , .login-password' ).css( {"border-color":"#999999" , "background" : "white"} );
 			$('.button').removeAttr('disabled');
 			
@@ -49,6 +51,8 @@ $('#popup-wrap').hide();
 						$('.lr').hide();
 						$('.lr').html(data);
 						$('.lr').fadeIn( "slow" );
+						//show loading first
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 					}
 			 );
 
@@ -59,13 +63,16 @@ $('#popup-wrap').hide();
 	
 	//check when click on button 
 	$("#applyperm").submit(function(){
-
+			//show loading ...
+			$('#loading').show('slide', {direction: 'left'}, 500 );
 			$.post($("#applyperm").attr("action"),
 					$("#applyperm :input").serializeArray(),
 					function(data){
 						$('.lr').hide();
 						$('.lr').html(data);
 						$('.lr').fadeIn( "slow" );
+			//show loading ...
+			$('#loading').hide('slide', {direction: 'right'}, 500 );
 					}
 			 );
 
@@ -87,10 +94,10 @@ $('#popup-wrap').hide();
 			 return false;
 		}
 		else{
-
-			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show('slide', {direction: 'right'}, 500 );
+			$('#loading').show('slide', {direction: 'left'}, 500 );
+			$('.error,.ok').hide();
+
 			//to upload form and FILE must use this method
 			var formData = new FormData($(this)[0]);
 		    $.ajax({
@@ -101,8 +108,8 @@ $('#popup-wrap').hide();
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 		        },
 		        cache: false,
 		        contentType: false,
