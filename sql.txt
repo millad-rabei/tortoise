@@ -112,6 +112,7 @@ receiver        MEDIUMINT   UNSIGNED        NOT NULL,
 letterid        MEDIUMINT    UNSIGNED          NOT NULL, 
 receivertype    VARCHAR( 100 )                NOT NULL,
 view           VARCHAR( 10 )  	NOT NULL,
+archived           VARCHAR( 10 )  	NOT NULL,
 PRIMARY KEY (receiverid),
 FOREIGN KEY (receiver) REFERENCES usertitle(usertitleid) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN KEY (letterid) REFERENCES letter(letterid) ON DELETE CASCADE ON UPDATE CASCADE

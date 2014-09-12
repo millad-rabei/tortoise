@@ -9,6 +9,7 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	include_once 'workdatabase.class.php';
 	$work = new workdatabase();
 	//fetch table info
+	//$_POST['section'] from form.class.php
 	if(!empty($_POST['section']))
 	{
 		if($_POST['section']=='title'){
@@ -20,15 +21,15 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 			exit();
 		}
 		if($_POST['section']=='addletter'){
-			$work->fetchletter("addletter");
+			$work->fetchletter("addletter",$_POST['user_id']);
 			exit();
 		}
 		if($_POST['section']=='letters'){
-			$work->fetchletter("letters");
+			$work->fetchletter("letters",$_POST['user_id']);
 			exit();
 		}
 		if($_POST['section']=='archive'){
-			$work->fetchletter("archive");
+			$work->fetchletter("archive",$_POST['user_id']);
 			exit();
 		}
 		else{
@@ -50,13 +51,13 @@ $url = '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
 	$work->fetchuser("user");
 
 	if($_POST['firstsection']=="addletter")
-	$work->fetchletter("addletter");
+	$work->fetchletter("addletter",$_POST['user_id']);
 	
 	if($_POST['firstsection']=="letters")
-	$work->fetchletter("letters");
+	$work->fetchletter("letters",$_POST['user_id']);
 
 	if($_POST['firstsection']=="archive")
-	$work->fetchletter("archive");
+	$work->fetchletter("archive",$_POST['user_id']);
 
 	}
 

@@ -12,6 +12,7 @@ html,body{
 .topheader,
 .header-wrap{float:left;width:100%;clear:both;}
 .topheader{height:7px;background:#008fd7;}
+#loading{position: fixed;height:7px;width: 100%;background:#FFE572 url(../images/loadingtrans.png);top:0px;}
 .header-wrap{background:#96c7ff;height:60px;}
 .header{width:960px;height:100%;margin:0 auto;}
 .header-bg{float:left;margin-top:10px;height:39px;}
@@ -187,10 +188,10 @@ margin-left: -250px;
 
 .tblresult{
     border-collapse:collapse;
-   margin: 0px 17px 10px 0px;
+   margin: 10px 5px 10px 0px;
 }
 .tblresult td{
-    padding:0px 12px 0px 12px;
+    padding:0px 7px 0px 7px;
     text-align:center;
     
 }
@@ -199,6 +200,8 @@ margin-left: -250px;
     color:#2F4D6B;
     border-bottom:1px #7E94AA solid;
 }
+.tblresult input[type=image]{margin-top: 7px;}
+.tblresult .viewed{background: #E9BFFF!important;color:gray!important;}
 .tblresult tr:nth-child(even) {
     background:#D1FFD4;
 }

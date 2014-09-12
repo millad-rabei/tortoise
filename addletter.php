@@ -6,12 +6,49 @@ $docnumber = "";
 $sender = "";
 $touser = "";
 $docdate = "";
+$letter_subject = "";
+$letter_maintext = "";
+$letter_action = "";
 $user_id = $_POST['user_id'];
 $receivertype = "مستقیم";
 $view = "no";
+$archived = "no";
 
-if (isset($_POST['letter_type'])){$letter_type = $_POST['letter_type'];}
-if (isset($_GET["status"])){$letter_status = $_GET["status"];} //draft , send
+if (isset($_POST['letter_type'])){
+	switch ($_POST['letter_type']) {
+		case 'internal':
+			$letter_type = "داخلی";
+			break;
+		case 'incoming':
+			$letter_type = "وارده";
+			break;
+		case 'external':
+			$letter_type = "صادره";
+			break;
+		default:
+			# code...
+			break;
+	}
+}
+if (isset($_GET["status"])){
+	switch ($_GET["status"]) {
+		case 'send':
+			$letter_status = "ارسال شده";
+			break;
+		case 'draft':
+			$letter_status = "پیش نویس";
+			break;
+		case 'incoming':
+			$letter_status = "ثبت سیستم";
+			break;		
+		case 'external':
+			$letter_status = "چاپ شده";
+			break;		
+		default:
+			# code...
+			break;
+	}
+} //draft , send
 if (isset($_POST['letter_number'])){$letter_number= $_POST['letter_number'];}
 if (isset($_POST['letter_subject'])){$letter_subject= $_POST['letter_subject'];}
 if (isset($_POST['title'])){$title= $_POST['title'];}
@@ -24,9 +61,9 @@ if (isset($_POST['docdate'])){$docdate = $_POST['docdate'];}
 
 
 if (isset($_POST['attach_check'])) {
-	$hasattachment="yes";
+	$hasattachment="دارد";
 }else
-{$hasattachment="no";}
+{$hasattachment="ندارد";}
 
 //create Letter
 $db->query("INSERT INTO letter (usertitle,userid,letternumber,docnumber,docdate,date,sender,touser,type,subject,mainText,status,hasattachment,eghdam) 
@@ -44,7 +81,7 @@ $db->query("SELECT letterid FROM letter ORDER BY letterid DESC LIMIT 1");
 	  	$receiversArray = $_POST['receivers'];
 	    for ($i=0; $i<count($receiversArray); $i++) {
 	    	$receiver=$receiversArray[$i];
-	        $db->query("INSERT INTO receivers (receiver,letterid,receivertype,view) VALUES ('$receiver','$letterid','$receivertype','$view') ");
+	        $db->query("INSERT INTO receivers (receiver,letterid,receivertype,view,archived) VALUES ('$receiver','$letterid','$receivertype','$view','$archived') ");
 	    }
 	}
 

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$('.add,.edit,.edituser,.delete,.adduser,.addtitle2,.addletter_internal,.addletter_incoming,.addletter_external').click(function(){
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			var id = $(this).attr("id");
 			var type = $(this).attr("class");
 			var table = $(this).attr("rel");
@@ -31,7 +31,7 @@ $(document).ready(function(){
 						};
 						$('div#popup-wrap').html(data);
 						$('#popup-wrap').show();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 					}
 			 );
 

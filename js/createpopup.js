@@ -96,7 +96,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -108,7 +108,7 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('#attach_result').append(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
 		        },
 		        cache: false,
@@ -138,7 +138,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -150,8 +150,15 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
+						//update info
+						$.post("../getpgt.php",
+							$("#addletter :input").serializeArray(),
+							function(data){
+								$('.pgt-content').html(data);
+						});
+
 		        },
 		        cache: false,
 		        contentType: false,
@@ -180,7 +187,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -192,8 +199,14 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
+						//update info
+						$.post("../getpgt.php",
+							$("#addletter :input").serializeArray(),
+							function(data){
+								$('.pgt-content').html(data);
+						});
 		        },
 		        cache: false,
 		        contentType: false,
@@ -228,7 +241,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -240,8 +253,14 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
+						//update info
+						$.post("../getpgt.php",
+							$("#addletter :input").serializeArray(),
+							function(data){
+								$('.pgt-content').html(data);
+						});
 		        },
 		        cache: false,
 		        contentType: false,
@@ -272,7 +291,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($("#addletter")[0]);
 
@@ -284,8 +303,14 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
+						//update info
+						$.post("../getpgt.php",
+							$("#addletter :input").serializeArray(),
+							function(data){
+								$('.pgt-content').html(data);
+						});
 		        },
 		        cache: false,
 		        contentType: false,
@@ -313,7 +338,7 @@ $('#selecctall').click(function(event) {  //on click
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($(this)[0]);
 		    $.ajax({
@@ -324,7 +349,7 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
 		        },
 		        cache: false,
@@ -354,7 +379,7 @@ $('#selecctall').click(function(event) {  //on click
 		else{
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 			
@@ -364,7 +389,7 @@ $('#selecctall').click(function(event) {  //on click
 					function(data){
 						$('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 						//update info
 						$.post("../getpgt.php",
@@ -396,7 +421,7 @@ $('#selecctall').click(function(event) {  //on click
 		else{
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 			
@@ -406,7 +431,7 @@ $('#selecctall').click(function(event) {  //on click
 					function(data){
 						$('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 						//update info
 						$.post("../getpgt.php",
@@ -479,7 +504,7 @@ $('#selecctall').click(function(event) {  //on click
 		if (password === confirmpassword){
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 
@@ -493,7 +518,7 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 		        },
 		        cache: false,
@@ -555,7 +580,7 @@ $('#selecctall').click(function(event) {  //on click
 		if (password === confirmpassword){
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 			
@@ -569,7 +594,7 @@ $('#selecctall').click(function(event) {  //on click
 		        success: function (data) {
 		            $('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 		        },
 		        cache: false,
@@ -598,7 +623,7 @@ $('#selecctall').click(function(event) {  //on click
 		
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 			
@@ -608,7 +633,7 @@ $('#selecctall').click(function(event) {  //on click
 					function(data){
 						$('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 						
 						//update info
@@ -633,7 +658,7 @@ $('#selecctall').click(function(event) {  //on click
 		
 			$( '.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'left'},  500 );
 			$( '.pgt' ).css( {"border-color":"#999999" , "background" : "white"} );
 			//$('.button').removeAttr('disabled');
 			
@@ -643,7 +668,7 @@ $('#selecctall').click(function(event) {  //on click
 					function(data){
 						$('.lr').html(data);
 						$( '.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$( '.error,.ok').fadeIn( "slow" );
 						
 						//update info

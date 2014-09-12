@@ -23,7 +23,7 @@
     		if(empty($result)){return $start." / ".$letchar;}
     		else{
      		foreach ($result as $v) {
-     			return ($v[0]+$start)." / ".$letchar;
+     			return ($v[0]+$start+1)." / ".$letchar;
      			}
      		}
 }

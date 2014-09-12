@@ -174,6 +174,7 @@ class form{
             <br>			
 			<input type="hidden" name="user_id" value="'.$this->userid.'">
 			<input type="hidden" name="letter_type" value="'.$type.'">
+			<input type="hidden" name="section" value="addletter">
 			<input class="button" id="send" type="button" value="ارسال">
 			<input class="button" id="draft" type="button" value="ذخیره پیشنویس">
 			</div>
@@ -211,6 +212,7 @@ class form{
 			</ul></div>
 			<input type="hidden" name="user_id" value="'.$this->userid.'">
 			<input type="hidden" name="letter_type" value="'.$type.'">
+			<input type="hidden" name="section" value="addletter">
 			<input class="button" id="incoming" type="button" value="ثبت سند در سیستم">
 			</div>
 			</form>';
@@ -248,7 +250,7 @@ class form{
             <br>
 			<input type="hidden" name="user_id" value="'.$this->userid.'">
 			<input type="hidden" name="letter_type" value="'.$type.'">
-			<input type="hidden" name="title" value="">
+			<input type="hidden" name="section" value="addletter">
 			<input class="button" id="external" type="button" value="ثبت سند در سیستم">
 			</div>
 			</form>';

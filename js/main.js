@@ -7,7 +7,7 @@ $.post("../getpgt.php",
 	$('.pgt-content').html(data);
 });
 //hide loading first
-$('#loading').hide();
+$('#loading').hide('slide', {direction: 'right'}, 500 );
 //hide all popup div
 $('#popup-wrap').hide();
 
@@ -90,7 +90,7 @@ $('#popup-wrap').hide();
 
 			$('.error,.ok').hide();
 			//show loading ...
-			$('#loading').show();
+			$('#loading').show('slide', {direction: 'right'}, 500 );
 			//to upload form and FILE must use this method
 			var formData = new FormData($(this)[0]);
 		    $.ajax({
@@ -101,7 +101,7 @@ $('#popup-wrap').hide();
 		        success: function (data) {
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
-						$('#loading').hide();
+						$('#loading').hide('slide', {direction: 'right'}, 500 );
 						$('.error,.ok').fadeIn( "slow" );
 		        },
 		        cache: false,

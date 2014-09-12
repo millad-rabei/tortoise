@@ -1,4 +1,5 @@
 <div class="topheader"></div>
+<div id="loading"></div>
 <div class="header-wrap">
 <div class="header">
 	<div class="header-bg">
