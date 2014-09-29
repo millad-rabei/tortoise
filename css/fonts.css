@@ -39,7 +39,15 @@
     font-weight: bold;
     font-style: normal;
 }
+@font-face {
+    font-family: 'dinar';
+    src: url('fonts/Dinar.eot');
+    src: url('fonts/Dinar.woff') format('woff'),
+         url('fonts/Dinar.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 
+}
 @font-face {
     font-family: "myriad";
     src: url( "fonts/MyriadArabic-Regular.eot"),

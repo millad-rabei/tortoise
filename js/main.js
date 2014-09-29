@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+
+
+
 //show pgt info
 $.post("../getpgt.php",
 	$("#secform :input").serializeArray(),
@@ -82,6 +85,8 @@ $('#popup-wrap').hide();
 
 
 
+
+
 	//Update Options
 	$("#options").submit(function(){
 
@@ -106,6 +111,7 @@ $('#popup-wrap').hide();
 		        data: formData,
 		        async: false,
 		        success: function (data) {
+		        	location.reload(true);
 		            $('.lr').html(data);
 						$('.error,.ok').hide();
 						$('.error,.ok').fadeIn( "slow" );

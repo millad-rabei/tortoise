@@ -60,8 +60,13 @@ include 'config.php';
 	  echo "فایل امضا معتبر نیست. حداکثر سایز 200 کیلوبایت می باشد.";
 	}
 	///////////////////////////////////////////////////////////////////////
+	//add date and time
+	require_once 'src/jdatetime.class.php';
+	$date = new jDateTime(true, true, 'Asia/Tehran');
+	$now = $date->date("y/m/d H:i");
+	//$now = $date->date("y/m/d");
 
-	$db->query("INSERT INTO user (username,password,firstname,lastname,signature,createdate,melicode,cellphone,birthdate,address,successor) VALUES ('$username','$password','$firstname','$lastname','$signature',NOW(),'$melicode','$cellphone','$birthdate','$address','$successor') ");
+	$db->query("INSERT INTO user (username,password,firstname,lastname,signature,createdate,melicode,cellphone,birthdate,address,successor) VALUES ('$username','$password','$firstname','$lastname','$signature','$now','$melicode','$cellphone','$birthdate','$address','$successor') ");
 
 	//find user id that saved now
 	$db->query("SELECT * FROM user WHERE(username='$username')");

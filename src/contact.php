@@ -16,7 +16,18 @@ class Contact
 	exit();	
 }
 else{
+		if ($_SESSION['timeout'] + 10 * 60 < time()) {
+     	// session timed out
+		include 'header.inc.php';
+		include 'topheader.inc.php';
+		include 'main.inc.php';
+		include 'timeout.php';
+		include 'endmain.inc.php';
+		include 'footer.inc.php';
+  		} else {
 		//show home
+  			  		//Update sesseion time
+		$_SESSION['timeout'] = time();
 		include 'header.inc.php';
 		include 'topheader.inc.php';
 		include 'main.inc.php';
@@ -24,6 +35,7 @@ else{
 		include 'contact-content.php';
 		include 'endmain.inc.php';
 		include 'footer.inc.php';
+}
 }
 	}
 

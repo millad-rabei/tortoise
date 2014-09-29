@@ -15,10 +15,10 @@ $page= ($_SERVER['QUERY_STRING']); }
 				<li <?php if (strpos($page,'uri=dashboard') !== FALSE) echo ' class="active"'; ?> >کارتابل</li></a>
 				<a href="<?php echo $url; ?>/user">
 				<li <?php if (strpos($page,'uri=user') !== FALSE) echo ' class="active"'; ?> >مدیریت پرسنل</li></a>
-				<a href="<?php echo $url; ?>/contact">
+<!-- 				<a href="<?php echo $url; ?>/contact">
 				<li <?php if (strpos($page,'uri=contact') !== FALSE) echo ' class="active"'; ?> >دفترچه تلفن</li></a>
 				<a href="<?php echo $url; ?>/profile">
-				<li <?php if (strpos($page,'uri=profile') !== FALSE) echo ' class="active"'; ?> >ویرایش مشخصات</li></a>
+				<li <?php if (strpos($page,'uri=profile') !== FALSE) echo ' class="active"'; ?> >ویرایش مشخصات</li></a> -->
 				<a href="<?php echo $url; ?>/options">
 				<li <?php if (strpos($page,'uri=options') !== FALSE) echo ' class="active"'; ?> >تنظیمات</li></a>
 				<a href="<?php echo $url; ?>/about">
