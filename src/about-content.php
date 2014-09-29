@@ -12,13 +12,13 @@
 
 		</div>
 		<hr>
-		<span>توسعه دهنده : </span><a href="http://ariadev.ir" target="_blank"><b>شرکت استودیو وب آریا</b></a><br>
-		<span>تارنمای سنگ پشت : </span><a href="http://www.sangposht.ir" target="_blank">www.sangposht.ir</a><br>
+		<span>توسعه دهنده : </span><a href="" target="_blank"><b></b></a><br>
+		<span>تارنمای سنگ پشت : </span><a href="http://sangposht.blogfa.com" target="_blank">sangposht.blogfa.com</a><br>
 		<div class="sangposht-logo"><img src="images/logo.png"></div>
 
 		<div class="logos">
 			<a target="_blank" href="http://opensource.org/licenses/mit-license.html"><img class="opensource" src="images/opensource.png"></a>
-			<a target="_blank" href="http://github.com/ariadev/Sangposht"><img class="github" src="images/github.png"></a>
-			<a target="_blank" href="http://ariadev.ir"><img class="ariadev" src="images/ariadev.png"></a>
+			<a target="_blank" href="http://github.com/tortoisePL/Sangposht"><img class="github" src="images/github.png"></a>
+			<a target="_blank" href=""><img class="ariadev" src=""></a>
 		</div>
 	</div>
